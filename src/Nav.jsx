@@ -2,20 +2,33 @@ import React, { useState } from 'react';
 import { CiMenuFries } from 'react-icons/ci';
 import { IoIosSearch } from 'react-icons/io';
 
+import logo from '../src/assets/lottie/logo.png'
+import { NavLink } from 'react-router-dom';
+
 const Nav = () => {
     
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
     return (
         
-       <div className='w-11/12 mx-auto'>
+       <div className='sticky top-0 z-10 bg-[#ffffff00] backdrop-blur-xl'>
+        <div className='w-11/12 mx-auto'>
          <nav
-            className="flex items-center justify-between w-full relative bg-white boxShadow rounded-full px-[10px] py-[8px]">
-            <img src="https://i.ibb.co/0BZfPq6/darklogo.png" alt="logo" className="w-[55px] "/>
+            className="flex items-center justify-between w-full relative boxShadow rounded-full px-[10px] py-[8px]">
+            <div className='flex items-center'> <img src={logo} alt="logo" className="w-[70px] "/> <h1 className='text-2xl'>Find Partners</h1></div>
             <ul className="items-center gap-[20px] text-[1rem] text-[#424242] lg:flex hidden">
-                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">home</li>
-                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">features</li>
-                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">blogs</li>
-                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">shop</li>
+                <NavLink to="/"> 
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">Home</li>
+                </NavLink>
+                <NavLink to="/bioData"> 
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">BioData</li>
+                </NavLink>
+                <NavLink to="/about"> 
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">About Us</li>
+                </NavLink>
+                <NavLink to="contact"> 
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">Contact Us</li>
+                </NavLink>
+                 
             </ul>
 
             <div className="items-center gap-[10px] flex">
@@ -41,14 +54,23 @@ const Nav = () => {
                     <IoIosSearch className="absolute top-[8px] left-3 text-gray-500 text-[1.3rem]"/>
                 </div>
                 <ul className="items-center gap-[20px] text-[1rem] text-gray-600 flex flex-col">
-                    <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize">home</li>
-                    <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-poin ter capitalize">Features
-                    </li>
-                    <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize">Blogs</li>
-                    <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize">Shop</li>
+                <NavLink to="/"> 
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">Home</li>
+                </NavLink>
+                <NavLink> 
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">BioData</li>
+                </NavLink>
+                <NavLink> 
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">About Us</li>
+                </NavLink>
+                <NavLink> 
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">Contact Us</li>
+                </NavLink>
+                 
                 </ul>
             </aside>
         </nav>
+       </div>
        </div>
     );
 };
