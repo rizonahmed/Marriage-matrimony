@@ -3,6 +3,8 @@ import { BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import { CgFacebook } from 'react-icons/cg';
 import Swal from 'sweetalert2';
 
+import logo from '../src/assets/lottie/logo.png'
+
 const Footer = () => {
     const [email, setEmail] = useState('');
 
@@ -93,15 +95,9 @@ const Footer = () => {
 
                 {/* Divider */}
                 <div className="border-t border-gray-700 pt-6 flex flex-col items-center">
-                    {/* Logo */}
-                    <img
-                        src="https://i.ibb.co/ZHYQ04D/footer-logo.png"
-                        alt="Logo"
-                        className="w-32 mb-4"
-                    />
-                    {/* Copyright Text */}
+                    
                     <p className="text-sm text-gray-400 text-center">
-                        © 2024 ZenUI Library. All Rights Reserved.
+                        © 2024  All Rights Reserved.
                     </p>
                     {/* Social Media Links */}
                     <div className="flex space-x-4 mt-4">

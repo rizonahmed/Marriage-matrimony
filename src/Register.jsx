@@ -39,7 +39,7 @@ const Register = () => {
             <title>Register/Champion Marathons</title>
         </Helmet> */}
     
-        <div className="w-full max-w-lg shadow-2xl bg-white p-6 rounded-lg ">
+        <div className="w-full max-w-lg shadow-2xl bg-gray-200 p-6 rounded-lg ">
             <form className="space-y-6">
                 <p className="text-3xl font-bold text-center text-black mb-6">
                     Register to Your Account

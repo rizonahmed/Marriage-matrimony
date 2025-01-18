@@ -13,6 +13,7 @@ import Home from './Home.jsx';
 import Biodata from './Biodata.jsx';
 import Contact from './Contact.jsx';
 import About from './About.jsx';
+import AuthProvider from './AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider><RouterProvider router={router} /></AuthProvider>
   </StrictMode>,
 )

@@ -39,7 +39,7 @@ const Login = () => {
         </Helmet> */}
     
         <div
-            className="w-full max-w-md shrink-0 shadow-lg p-6 bg-white rounded-xl"
+            className="w-full max-w-md shrink-0 shadow-lg p-6 bg-gray-200 rounded-xl"
             style={{
                 backdropFilter: "blur(12px)",
                 border: "1px solid rgba(255, 255, 255, 0.3)",
