@@ -13,6 +13,7 @@ import Home from './Home.jsx';
 import Biodata from './Biodata.jsx';
 import Contact from './Contact.jsx';
 import About from './About.jsx';
+import Error from './Error.jsx'
 import AuthProvider from './AuthProvider.jsx';
 
 const router = createBrowserRouter([

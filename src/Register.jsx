@@ -33,13 +33,13 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row justify-center items-center px-5 gap-10">
+        <div className="min-h-[80vh] flex flex-col md:flex-row justify-center items-center px-5 gap-10">
 
         {/* <Helmet>
             <title>Register/Champion Marathons</title>
         </Helmet> */}
     
-        <div className="w-full max-w-lg shadow-2xl bg-gray-200 p-6 rounded-lg ">
+        <div className="w-full max-w-lg shadow-2xl bg-gray-200 p-6 rounded-lg  mt-32 mb-8">
             <form className="space-y-6">
                 <p className="text-3xl font-bold text-center text-black mb-6">
                     Register to Your Account

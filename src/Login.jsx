@@ -32,14 +32,14 @@ const Login = () => {
     };
 
     return (
-        <div className="h-[80%] min-h-screen flex flex-col md:flex-row justify-center items-center px-5 gap-10">
+        <div className=" min-h-[80vh] flex flex-col md:flex-row justify-center items-center px-5 gap-10">
 
         {/* <Helmet>
             <title>Login/Champion Marathons</title>
         </Helmet> */}
     
         <div
-            className="w-full max-w-md shrink-0 shadow-lg p-6 bg-gray-200 rounded-xl"
+            className="w-full max-w-md shrink-0 shadow-lg p-6 bg-gray-200 rounded-xl mt-32 md:mb-14"
             style={{
                 backdropFilter: "blur(12px)",
                 border: "1px solid rgba(255, 255, 255, 0.3)",
