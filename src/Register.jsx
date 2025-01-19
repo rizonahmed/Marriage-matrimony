@@ -3,33 +3,68 @@ import animationTwo from '../src/assets/lottie/animation-2.json';
 import Lottie from 'lottie-react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: '',
-        photoURL: '',
-    });
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
+        const validatePassword = (password) => {
+            const errors = [];
+            if (password.length < 6) {
+                errors.push("Password must be at least 6 characters long.");
+            }
+            if (!/[A-Z]/.test(password)) {
+                errors.push("Password must include at least one uppercase letter.");
+            }
+            if (!/[a-z]/.test(password)) {
+                errors.push("Password must include at least one lowercase letter.");
+            }
+            return errors;
+        };
+
+        const validationErrors = validatePassword(password);
+        if (validationErrors.length > 0) {
+            Swal.fire({
+                icon: "error",
+                title: "Invalid Password",
+                html: `<ul>${validationErrors
+                    .map((err) => `<li>${err}</li>`)
+                    .join("")}</ul>`,
+            });
+            return;
+        }
+
+        createUser(email, password)
+            .then((result) => {
+                const profile = {
+                    displayName: name,
+                    photoURL: photo,
+                };
+                updateProfile(auth.currentUser, profile)
+                    .then(() => { })
+                    .catch((error) => { })
+            });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted:', formData);
-        alert('Registration successful!');
-        setFormData({
-            name: '',
-            email: '',
-            password: '',
-            photoURL: '',
-        });
+    const handleGoogleLogin = () => {
+        googleSignIn()
+            .then(() => {
+                navigate("/");
+            })
+            .catch((error) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Register Failed",
+                    text: error.message,
+                });
+            });
     };
 
     return (

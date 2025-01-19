@@ -12,9 +12,8 @@ const Footer = () => {
         e.preventDefault();
         if (email) {
             console.log(`Email submitted: ${email}`);
-            setEmail(''); // Clear the email input
+            setEmail('');  
 
-            // Display SweetAlert modal for feedback
             Swal.fire({
                 title: 'Thank you for subscribing!',
                 text: 'How was your experience?',
@@ -37,7 +36,7 @@ const Footer = () => {
         <footer className="bg-gray-900 text-white py-10">
             <div className="container mx-auto px-6 lg:px-16">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                    {/* Company Section */}
+
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Company</h3>
                         <ul className="space-y-2">
@@ -48,7 +47,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Resources Section */}
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Resources</h3>
                         <ul className="space-y-2">
@@ -59,7 +57,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Products Section */}
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Products</h3>
                         <ul className="space-y-2">
@@ -70,7 +67,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Newsletter Section */}
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Subscribe to our Newsletter</h3>
                         <p className="text-sm mb-4 text-gray-400">Get the latest updates and news in your inbox.</p>
@@ -93,13 +89,11 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Divider */}
                 <div className="border-t border-gray-700 pt-6 flex flex-col items-center">
                     
                     <p className="text-sm text-gray-400 text-center">
                         © 2024  All Rights Reserved.
                     </p>
-                    {/* Social Media Links */}
                     <div className="flex space-x-4 mt-4">
                         <a
                             href="#"
