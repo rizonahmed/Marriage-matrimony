@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
 
+    console.log(user);
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -32,56 +33,18 @@ const AuthProvider = ({ children }) => {
 
 
 
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-
-            // if (currentUser?.email) {
-            //     const userInfo = { email: currentUser.email };
-
-            //     try {
-            //         const fetchData = async () => {
-            //             const res = await axios.post(
-            //                 ' http://localhost:5000/create-token',
-            //                 userInfo,
-            //                 { withCredentials: true }
-            //             );
-            //             const data = await res.data;
-            //             setLoading(false);
-            //         };
-            //         fetchData();
-            //     } catch (err) {
-            //         toast.error(err.message);
-            //     }
-            // } else {
-            //     try {
-            //         const fetchData = async () => {
-            //             const res = await axios.post(
-            //                 ' http://localhost:5000/logout',
-            //                 {},
-            //                 { withCredentials: true }
-            //             );
-            //             const data = await res.data;
-
-            //             if (data.success) {
-            //                 setUser(null);
-            //                 setLoading(false);
-            //             } else {
-            //                 toast.error('Failed to log out');
-            //             }
-            //         };
-            //         fetchData();
-            //     } catch (err) {
-            //         toast.error(err.message);
-            //     }
-            // }
-        });
-
+    
+    useEffect(()=> {
+        const unSubscribe = onAuthStateChanged(auth, currentUser =>{
+          setUser(currentUser)
+          setLoading(false)
+        })
+  
         return () => {
-            unSubscribe();
-        };
-    }, []);
-
+          unSubscribe();
+        }
+  
+      } ,[])
 
 
 
@@ -89,7 +52,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         signInUser,
         googleSignIn,
-        signOutUser
+        signOutUser,
+        user
     }
 
     return (

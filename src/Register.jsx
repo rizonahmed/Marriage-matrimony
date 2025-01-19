@@ -11,7 +11,7 @@ import { auth } from './firebase.init';
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, googleSignIn } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleRegister = (e) => {
@@ -175,7 +175,7 @@ const Register = () => {
                         onClick={handleGoogleLogin}
                         className="w-full py-3 bg-black text-white flex items-center justify-center gap-2 rounded-lg"
                     >
-                        <FaGoogle /> Login with Google
+                        <FaGoogle /> SignUp with Google
                     </button>
                 </div>
 

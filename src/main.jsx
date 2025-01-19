@@ -15,6 +15,7 @@ import Contact from './Contact.jsx';
 import About from './About.jsx';
 import Error from './Error.jsx'
 import AuthProvider from './AuthProvider.jsx';
+import Dashboard from './Dashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
+      },
+      {
+        path:'/dashboard',
+        element:<Dashboard></Dashboard>
       }
     ]
   },
