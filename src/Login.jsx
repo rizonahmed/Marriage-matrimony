@@ -1,34 +1,66 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import animationOne from '../src/assets/lottie/animation-1.json';
 import Lottie from 'lottie-react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-
-import animationTwo from '../src/assets/lottie/animation-1.json';
+import { AuthContext } from './AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-    });
+    const { signInUser, googleSignIn } = useContext(AuthContext);
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signInUser(email, password)
+            .then((result) => {
+                form.reset();
+                Swal.fire({
+                    title: "Login Success!",
+                    text: "Wait a moment!",
+                    icon: "success",
+                });
+
+                setTimeout(() => {
+                    navigate("/");
+                }, 2000);
+            })
+            .catch((error) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Login Failed",
+                    text: error.message || "Something went wrong!",
+                });
+            });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Login submitted:', formData);
-        alert('Login successful!');
-        setFormData({
-            email: '',
-            password: '',
-        });
+    const handleGoogleLogin = () => {
+        googleSignIn()
+            .then((result) => {
+                Swal.fire({
+                    title: "Login Success!",
+                    text: "Wait a moment!",
+                    icon: "success",
+                });
+
+                setTimeout(() => {
+                    navigate("/");
+                }, 2000);
+            })
+            .catch((error) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Login Failed",
+                    text: error.message || "Something went wrong!",
+                });
+            });
     };
 
     return (
@@ -45,7 +77,9 @@ const Login = () => {
                 border: "1px solid rgba(255, 255, 255, 0.3)",
             }}
         >
-            <form className="space-y-6">
+            <form 
+            onSubmit={handleLogin}
+            className="space-y-6">
                 <p className="text-3xl font-bold text-center text-black">
                     Login to Your Account
                 </p>
@@ -91,7 +125,7 @@ const Login = () => {
             {/* Google Login Button */}
             <div className="mt-6">
                 <button
-                    // onClick={handleGoogleLogin}
+                    onClick={handleGoogleLogin}
                     className="w-full py-3 bg-black text-white flex items-center justify-center gap-2 rounded-lg"
                 >
                     <FaGoogle /> Login with Google
