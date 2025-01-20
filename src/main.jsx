@@ -16,6 +16,7 @@ import About from './About.jsx';
 import Error from './Error.jsx'
 import AuthProvider from './AuthProvider.jsx';
 import Dashboard from './Dashboard.jsx';
+import Private from './Private.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/dashboard',
-        element:<Dashboard></Dashboard>
+        element: <Private> <Dashboard></Dashboard></Private>
       }
     ]
   },

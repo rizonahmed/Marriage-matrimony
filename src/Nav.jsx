@@ -72,13 +72,15 @@ const Nav = () => {
                         >
                             <li>Contact Us</li>
                         </NavLink>
-                        <NavLink
-                            to="/dashboard"
-                            activeClassName="text-black border-black"
-                            className="font-semibold border border-gray-300 px-3 py-1 rounded-2xl transition-all duration-300 hover:text-[#3B9DF8] hover:border-[#3B9DF8]"
-                        >
-                            <li>Dashboard</li>
-                        </NavLink>
+                      {
+                        user &&   <NavLink
+                        to="/dashboard"
+                        activeClassName="text-black border-black"
+                        className="font-semibold border border-gray-300 px-3 py-1 rounded-2xl transition-all duration-300 hover:text-[#3B9DF8] hover:border-[#3B9DF8]"
+                    >
+                        <li>Dashboard</li>
+                    </NavLink>
+                      }
                     </ul>
 
                     {/* Right Section */}
@@ -98,7 +100,7 @@ const Nav = () => {
                                                 <img
                                                     src={user?.photoURL} 
                                                     alt="avatar"
-                                                    className="w-[40px] h-[40px] rounded-full object-cover z-10"
+                                                    className="w-[50px] h-[50px] rounded-full object-cover z-10"
                                                 />
                                                 <div
                                                     className="w-[10px] h-[10px] rounded-full bg-green-500 absolute bottom-[0px] right-0 border-2 border-white"
