@@ -72,15 +72,15 @@ const Nav = () => {
                         >
                             <li>Contact Us</li>
                         </NavLink>
-                      {
-                        user &&   <NavLink
-                        to="/dashboard"
-                        activeClassName="text-black border-black"
-                        className="font-semibold border border-gray-300 px-3 py-1 rounded-2xl transition-all duration-300 hover:text-[#3B9DF8] hover:border-[#3B9DF8]"
-                    >
-                        <li>Dashboard</li>
-                    </NavLink>
-                      }
+                        {
+                            user && <NavLink
+                                to="/dashboard/createData"
+                                activeClassName="text-black border-black"
+                                className="font-semibold border border-gray-300 px-3 py-1 rounded-2xl transition-all duration-300 hover:text-[#3B9DF8] hover:border-[#3B9DF8]"
+                            >
+                                <li>Dashboard</li>
+                            </NavLink>
+                        }
                     </ul>
 
                     {/* Right Section */}
@@ -88,7 +88,7 @@ const Nav = () => {
                         {
                             user ?
                                 <>
-                                    
+
 
 
                                     <div className="flex items-center gap-[15px]">
@@ -98,7 +98,7 @@ const Nav = () => {
                                         >
                                             <div className="relative">
                                                 <img
-                                                    src={user?.photoURL} 
+                                                    src={user?.photoURL}
                                                     alt="avatar"
                                                     className="w-[50px] h-[50px] rounded-full object-cover z-10"
                                                 />
@@ -113,8 +113,8 @@ const Nav = () => {
 
                                             <div
                                                 className={`${accountMenuOpen
-                                                        ? "translate-y-0 opacity-100 z-[1]"
-                                                        : "translate-y-[10px] opacity-0 z-[-1]"
+                                                    ? "translate-y-0 opacity-100 z-[1]"
+                                                    : "translate-y-[10px] opacity-0 z-[-1]"
                                                     } bg-gray-200 w-max rounded-md boxShadow absolute top-[45px] right-0 p-[10px] flex flex-col transition-all duration-300 gap-[5px]`}
                                             >
                                                 <p className="flex items-center gap-[5px] rounded-md p-[8px] pr-[45px] py-[3px] text-[1rem] text-gray-600 hover:bg-gray-50">
@@ -130,12 +130,12 @@ const Nav = () => {
                                                     <p className="flex items-center gap-[5px] rounded-md p-[8px] pr-[45px] py-[3px] text-[1rem] text-red-500 hover:bg-red-50">
                                                         <TbLogout2 />
                                                         <Link to="/login">
-                                        <button
-                                            onClick={handleSignOut}
-                                            className="py-[7px] text-[1rem] px-[16px] rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 sm:flex hidden">
-                                            Sign out
-                                        </button>
-                                    </Link>
+                                                            <button
+                                                                onClick={handleSignOut}
+                                                                className="py-[7px] text-[1rem] px-[16px] rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 sm:flex hidden">
+                                                                Sign out
+                                                            </button>
+                                                        </Link>
                                                     </p>
                                                 </div>
                                             </div>
@@ -215,6 +215,16 @@ const Nav = () => {
                             >
                                 <li>Contact Us</li>
                             </NavLink>
+
+                            {
+                                user && <NavLink
+                                    to="/dashboard/createData"
+                                    activeClassName="text-black border-black"
+                                    className="font-semibold border border-gray-300 px-3 py-1 rounded-2xl transition-all duration-300 hover:text-[#3B9DF8] hover:border-[#3B9DF8]"
+                                >
+                                    <li>Dashboard</li>
+                                </NavLink>
+                            }
 
                         </ul>
                     </aside>

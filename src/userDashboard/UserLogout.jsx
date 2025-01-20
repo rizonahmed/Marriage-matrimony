@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider';
+import Swal from 'sweetalert2';
 
 const UserLogout = () => {
         const { signOutUser } = useContext(AuthContext)
@@ -8,7 +9,6 @@ const UserLogout = () => {
     signOutUser()
     .then(() => {
         Swal.fire({
-            icon: "error",
             title: "Sign Out Successfully",
             text: "Login again for all features!",
         });

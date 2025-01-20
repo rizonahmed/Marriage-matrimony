@@ -1,14 +1,22 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { AiOutlinePlus, AiOutlineFile, AiOutlineHeart, AiOutlineLogout, AiOutlineUsergroupAdd } from 'react-icons/ai'; // Importing icons
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import {
+    AiOutlinePlus,
+    AiOutlineFile,
+    AiOutlineHeart,
+    AiOutlineLogout,
+    AiOutlineUsergroupAdd,
+} from 'react-icons/ai';
 
 const Dashboard = ({ role }) => {
+    const location = useLocation();
+
     const userMenuItems = [
         { name: "Create Biodata", link: "/dashboard/createData", icon: <AiOutlinePlus /> },
         { name: "View Biodata", link: "/dashboard/viewBiodata", icon: <AiOutlineFile /> },
         { name: "My Favourites", link: "/dashboard/myFavourite", icon: <AiOutlineHeart /> },
         { name: "My Requests", link: "/dashboard/myRequest", icon: <AiOutlineFile /> },
-        { name: "Logout", link: "/dashboard/userLogout", icon: <AiOutlineLogout />, isLogout: true }, 
+        { name: "Logout", link: "/dashboard/userLogout", icon: <AiOutlineLogout />, isLogout: true },
     ];
 
     const adminMenuItems = [
@@ -16,7 +24,7 @@ const Dashboard = ({ role }) => {
         { name: "Manage Users", link: "/dashboard/manage-users", icon: <AiOutlineUsergroupAdd /> },
         { name: "Approved Premium", link: "/dashboard/approved-premium", icon: <AiOutlineFile /> },
         { name: "Approved Contact Request", link: "/dashboard/approved-contact-request", icon: <AiOutlineFile /> },
-        { name: "Logout", link: "/logout", icon: <AiOutlineLogout />, isLogout: true }, 
+        { name: "Logout", link: "/logout", icon: <AiOutlineLogout />, isLogout: true },
     ];
 
     const menuItems = role === "admin" ? adminMenuItems : userMenuItems;
@@ -33,10 +41,25 @@ const Dashboard = ({ role }) => {
                         <li key={index}>
                             <Link
                                 to={item.link}
-                                className={`block text-gray-700 font-medium py-2 px-4 rounded-lg shadow-sm hover:bg-blue-500 hover:text-white transition duration-300 flex items-center gap-3 ${item.isLogout ? 'text-red-500 hover:text-red-700' : ''}`} // Apply red text for logout
+                                className={`block font-medium py-2 md:px-4 rounded-lg shadow-sm flex items-center gap-3 transition duration-300
+                                    ${
+                                        location.pathname === item.link
+                                            ? "bg-blue-500 text-white"
+                                            : "text-gray-700 hover:bg-blue-500 hover:text-white"
+                                    }
+                                    ${item.isLogout ? 'text-red-500 hover:text-red-700' : ''}
+                                    text-sm`} // Mobile responsive text size
                             >
-                                {/* Adding logo/icon */}
-                                {item.icon}
+                                {/* Icon visibility logic */}
+                                <span
+                                    className={`${
+                                        item.isLogout
+                                            ? "block" // Always visible for logout
+                                            : "hidden md:block" // Hidden on mobile, visible from md
+                                    }`}
+                                >
+                                    {item.icon}
+                                </span>
                                 <span>{item.name}</span>
                             </Link>
                         </li>
