@@ -1,7 +1,10 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { AuthContext } from '../AuthProvider';
 
 const CreateData = () => {
+    const { user } = useContext(AuthContext);
+
     const [biodata, setBiodata] = useState({
         biodataType: '',
         name: '',
@@ -17,7 +20,7 @@ const CreateData = () => {
         permanentDivision: '',
         presentDivision: '',
         relationshipStatus: '',
-        contactEmail: '',
+        contactEmail: user?.email || '', // Set user's email here
         mobileNumber: '',
     });
 
@@ -279,8 +282,7 @@ const CreateData = () => {
                         type="email"
                         name="contactEmail"
                         value={biodata.contactEmail}
-                        onChange={handleChange}
-                        required
+                        readOnly
                         className="w-full p-3 border border-gray-300 rounded-lg"
                     />
                 </div>

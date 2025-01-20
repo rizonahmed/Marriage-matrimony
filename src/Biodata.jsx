@@ -39,9 +39,9 @@ const Biodata = () => {
     const filteredUsers = users.filter((user) =>
         user.age >= filters.ageRange[0] &&
         user.age <= filters.ageRange[1] &&
-        (!filters.gender || user.biodataType.toLowerCase() === filters.gender) &&
-        (!filters.status || user.relationshipStatus === filters.status) &&
-        (!filters.division || user.permanentDivision === filters.division)
+        (!filters.gender || user.biodataType.toLowerCase() === filters.gender.toLowerCase()) &&
+        (!filters.status || user.relationshipStatus.toLowerCase() === filters.status.toLowerCase()) &&
+        (!filters.division || user.permanentDivision.toLowerCase() === filters.division.toLowerCase())
     );
 
     if (loading) {
@@ -131,37 +131,41 @@ const Biodata = () => {
 
             {/* Cards Section */}
             <main className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredUsers.map((user) => (
-                    <div
-                        key={user._id}
-                        className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300"
-                    >
-                        <img
-                            src={user.profileImage || "https://via.placeholder.com/300"}
-                            alt={`${user.name || "No Name"}'s Profile`}
-                            className="w-full h-56 object-cover"
-                        />
-                        <div className="p-6">
-                            <h3 className="text-xl font-semibold text-gray-800">
-                                Biodata ID: {user.id || "N/A"}
-                            </h3>
-                            <p className="text-sm text-gray-600 mt-2">
-                                <strong>Type:</strong> {user.biodataType || "N/A"}
-                            </p>
-                            <p className="text-sm text-gray-600 mt-2">
-                                <strong>Division:</strong> {user.permanentDivision || "N/A"}
-                            </p>
-                            <p className="text-sm text-gray-600 mt-2">
-                                <strong>Occupation:</strong> {user.occupation || "N/A"}
-                            </p>
-                            <Link to={`/details/${user._id}`}>
-                                <button className="mt-4 bg-blue-500 text-white w-full py-3 rounded-md hover:bg-blue-600 transition">
-                                    View Profile
-                                </button>
-                            </Link>
+                {filteredUsers.length === 0 ? (
+                    <p>No users found based on your filters.</p>
+                ) : (
+                    filteredUsers.map((user) => (
+                        <div
+                            key={user._id}
+                            className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300"
+                        >
+                            <img
+                                src={user.profileImage || "https://via.placeholder.com/300"}
+                                alt={`${user.name || "No Name"}'s Profile`}
+                                className="w-full h-56 object-cover"
+                            />
+                            <div className="p-6">
+                                <h3 className="text-xl font-semibold text-gray-800">
+                                    Biodata ID: {user.id || "N/A"}
+                                </h3>
+                                <p className="text-sm text-gray-600 mt-2">
+                                    <strong>Type:</strong> {user.biodataType || "N/A"}
+                                </p>
+                                <p className="text-sm text-gray-600 mt-2">
+                                    <strong>Division:</strong> {user.permanentDivision || "N/A"}
+                                </p>
+                                <p className="text-sm text-gray-600 mt-2">
+                                    <strong>Occupation:</strong> {user.occupation || "N/A"}
+                                </p>
+                                <Link to={`/details/${user._id}`}>
+                                    <button className="mt-4 bg-blue-500 text-white w-full py-3 rounded-md hover:bg-blue-600 transition">
+                                        View Profile
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                )}
             </main>
         </div>
     );
