@@ -41,7 +41,7 @@ const Dashboard = ({ role }) => {
                         <li key={index}>
                             <Link
                                 to={item.link}
-                                className={`block font-medium py-2 md:px-4 rounded-lg shadow-sm flex items-center gap-3 transition duration-300
+                                className={`block font-medium text-center py-2 md:px-4 rounded-lg shadow-sm flex items-center gap-3 transition duration-300
                                     ${
                                         location.pathname === item.link
                                             ? "bg-blue-500 text-white"
