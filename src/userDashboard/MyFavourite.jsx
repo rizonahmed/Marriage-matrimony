@@ -73,7 +73,6 @@ const MyFavourite = () => {
         }
     };
 
-    // Loading state
     if (loading) {
         return (
             <div className="flex justify-center items-center h-screen">
