@@ -52,7 +52,9 @@ const ViewBiodata = () => {
         });
     };
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+    </div>
     if (!biodata) return <div>No biodata found for this user.</div>;
 
     return (
