@@ -7,9 +7,18 @@ import {
     AiOutlineLogout,
     AiOutlineUsergroupAdd,
 } from 'react-icons/ai';
+import useAdmin from './Hooks/useAdmin';
 
-const Dashboard = ({ role }) => {
+const Dashboard = () => {
     const location = useLocation();
+    const [isAdmin, isAdminLoading] = useAdmin()
+    const role = isAdmin.role
+    if (isAdminLoading) {
+        return <div className="flex justify-center items-center h-screen">
+            <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+        </div>
+    }
+    console.log(isAdmin);
 
     const userMenuItems = [
         { name: "Create Biodata", link: "/dashboard/createData", icon: <AiOutlinePlus /> },
@@ -27,8 +36,7 @@ const Dashboard = ({ role }) => {
 
     // Add logout button for all users
     const logoutItem = { name: "Logout", link: "/logout", icon: <AiOutlineLogout />, isLogout: true };
-
-    const menuItems = [...(role === "admin" ? adminMenuItems : userMenuItems), logoutItem];
+    const menuItems = role === 'admin'?adminMenuItems :userMenuItems;
 
     return (
         <div className="w-11/12 mx-auto min-h-screen grid grid-cols-12 mt-28">
@@ -54,10 +62,9 @@ const Dashboard = ({ role }) => {
                                 <Link
                                     to={item.link}
                                     className={`block font-medium text-center py-2 md:px-4 rounded-lg shadow-sm flex items-center gap-3 transition duration-300
-                                        ${
-                                            location.pathname === item.link
-                                                ? "bg-black text-white" // Active state: Black background, white text
-                                                : "text-sky-500 bg-gray-50 hover:bg-black hover:text-white" // Hover: Black background, white text
+                                        ${location.pathname === item.link
+                                            ? "bg-black text-white" // Active state: Black background, white text
+                                            : "text-sky-500 bg-gray-50 hover:bg-black hover:text-white" // Hover: Black background, white text
                                         }
                                         text-sm`}
                                 >
