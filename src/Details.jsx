@@ -140,9 +140,6 @@ const Details = () => {
         </div>
       </div>
 
-      <div className="text-center mt-12 text-gray-500 text-sm">
-        <p>&copy; 2025 All rights reserved. Designed by Your Name</p>
-      </div>
     </div>
   );
 };

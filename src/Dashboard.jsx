@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
     AiOutlinePlus,
     AiOutlineFile,
@@ -11,39 +11,47 @@ import useAdmin from './Hooks/useAdmin';
 
 const Dashboard = () => {
     const location = useLocation();
-    const [isAdmin, isAdminLoading] = useAdmin()
-    const role = isAdmin.role
+    const navigate = useNavigate();  
+    const [isAdmin, isAdminLoading] = useAdmin();
+    const role = isAdmin.role;
+
     if (isAdminLoading) {
-        return <div className="flex justify-center items-center h-screen">
-            <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
-        </div>
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+            </div>
+        );
     }
-    console.log(isAdmin);
+
+    const handleLogout = () => {
+         
+        navigate('userLogout'); 
+    };
 
     const userMenuItems = [
-        { name: "Create Biodata", link: "/dashboard/createData", icon: <AiOutlinePlus /> },
-        { name: "View Biodata", link: "/dashboard/viewBiodata", icon: <AiOutlineFile /> },
-        { name: "My Favourites", link: "/dashboard/myFavourite", icon: <AiOutlineHeart /> },
-        { name: "My Requests", link: "/dashboard/myRequest", icon: <AiOutlineFile /> },
+        { name: 'Create Biodata', link: '/dashboard/createData', icon: <AiOutlinePlus /> },
+        { name: 'View Biodata', link: '/dashboard/viewBiodata', icon: <AiOutlineFile /> },
+        { name: 'My Favourites', link: '/dashboard/myFavourite', icon: <AiOutlineHeart /> },
+        { name: 'My Requests', link: '/dashboard/myRequest', icon: <AiOutlineFile /> },
+        { name: 'Logout', isLogout: true },
     ];
 
     const adminMenuItems = [
-        { name: "Admin Dashboard", link: "/dashboard/admin", icon: <AiOutlineUsergroupAdd /> },
-        { name: "Manage Users", link: "/dashboard/manage-users", icon: <AiOutlineUsergroupAdd /> },
-        { name: "Approved Premium", link: "/dashboard/approved-premium", icon: <AiOutlineFile /> },
-        { name: "Approved Contact Request", link: "/dashboard/approved-contact-request", icon: <AiOutlineFile /> },
+        { name: 'Admin Dashboard', link: '/dashboard/adminDash', icon: <AiOutlineUsergroupAdd /> },
+        { name: 'Manage Users', link: '/dashboard/manageUser', icon: <AiOutlineUsergroupAdd /> },
+        { name: 'Approved Premium', link: '/dashboard/approvedContact', icon: <AiOutlineFile /> },
+        { name: 'Approved Contact Request', link: '/dashboard/approvedPremium', icon: <AiOutlineFile /> },
+        { name: 'Logout', isLogout: true },
     ];
 
-    // Add logout button for all users
-    const logoutItem = { name: "Logout", link: "/logout", icon: <AiOutlineLogout />, isLogout: true };
-    const menuItems = role === 'admin'?adminMenuItems :userMenuItems;
+    const menuItems = role === 'admin' ? adminMenuItems : userMenuItems;
 
     return (
         <div className="w-11/12 mx-auto min-h-screen grid grid-cols-12 mt-28">
             {/* Sidebar Menu */}
             <div className="col-span-3 shadow-md p-4 rounded-lg">
-                <h2 className="text-lg md:text-2xl font-bold  mb-6">
-                    {role === "admin" ? "Admin Dashboard" : "User Dashboard"} Menu
+                <h2 className="text-lg md:text-2xl font-bold mb-6">
+                    {role === 'admin' ? 'Admin Dashboard' : 'User Dashboard'} Menu
                 </h2>
                 <ul className="space-y-4">
                     {menuItems.map((item, index) => (
@@ -51,10 +59,11 @@ const Dashboard = () => {
                             {item.isLogout ? (
                                 // Logout Button
                                 <button
+                                    onClick={handleLogout}
                                     className="w-full py-2 px-4 rounded-lg shadow-sm flex items-center gap-1 justify-center font-medium transition duration-300
                                         text-red-500 bg-white border border-red-500 hover:bg-red-500 hover:text-white"
                                 >
-                                    <span>{item.icon}</span>
+                                    <span>{item.icon || <AiOutlineLogout />}</span>
                                     <span>{item.name}</span>
                                 </button>
                             ) : (
@@ -62,9 +71,10 @@ const Dashboard = () => {
                                 <Link
                                     to={item.link}
                                     className={`block font-medium text-center py-2 md:px-4 rounded-lg shadow-sm flex items-center gap-3 transition duration-300
-                                        ${location.pathname === item.link
-                                            ? "bg-black text-white" // Active state: Black background, white text
-                                            : "text-sky-500 bg-gray-50 hover:bg-black hover:text-white" // Hover: Black background, white text
+                                        ${
+                                            location.pathname === item.link
+                                                ? 'bg-black text-white'
+                                                : 'text-sky-500 bg-gray-50 hover:bg-black hover:text-white'
                                         }
                                         text-sm`}
                                 >

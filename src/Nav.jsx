@@ -3,13 +3,28 @@ import { CiMenuFries } from 'react-icons/ci';
 import { IoIosArrowUp, IoIosSearch } from 'react-icons/io';
 
 import logo from '../src/assets/lottie/logo.png';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 import { FiUser } from 'react-icons/fi';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { TbLogout2 } from 'react-icons/tb';
+import useAdmin from './Hooks/useAdmin';
 
 const Nav = () => {
+
+    const navigate = useNavigate();  
+    const [isAdmin, isAdminLoading] = useAdmin();
+    const role = isAdmin.role;
+
+    // if (isAdminLoading) {
+    //     return (
+    //         <div className="flex justify-center items-center h-screen">
+    //             <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+    //         </div>
+    //     );
+    // }
+
+
     const { user, signOutUser } = useContext(AuthContext)
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
@@ -74,7 +89,8 @@ const Nav = () => {
                         </NavLink>
                         {
                             user && <NavLink
-                                to="/dashboard/createData"
+                            to={role !== 'admin' ? "/dashboard/createData" : "/dashboard/adminDash"}
+                                // to="/dashboard/createData"
                                 activeClassName="text-black border-black"
                                 className="font-semibold border border-gray-300 px-3 py-1 rounded-2xl transition-all duration-300 hover:text-[#3B9DF8] hover:border-[#3B9DF8]"
                             >

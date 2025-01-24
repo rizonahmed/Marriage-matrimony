@@ -31,6 +31,11 @@ import ViewBiodata from './userDashboard/ViewBiodata.jsx'
 import MyFavourite from './userDashboard/MyFavourite.jsx'
 import MyRequest from './userDashboard/MyRequest.jsx'
 import UserLogout from './userDashboard/UserLogout.jsx'
+import ManageUser from './AdminDashboard/ManageUser.jsx'
+import ApprovedContact from './AdminDashboard/ApprovedContact.jsx'
+import ApprovedPremium from './AdminDashboard/ApprovedPremium.jsx'
+import AdminLogout from './AdminDashboard/AdminLogout.jsx'
+import AdminDash from './AdminDashboard/AdminDash.jsx'
 
 const router = createBrowserRouter([
   {
@@ -85,7 +90,28 @@ const router = createBrowserRouter([
           {
           path:'userLogout',
           element:<UserLogout></UserLogout>
-          }
+          },
+          {
+          path:'adminDash',
+          element:<AdminDash></AdminDash>
+          },
+          {
+          path:'manageUser',
+          element:<ManageUser></ManageUser>
+          },
+          {
+          path:'approvedContact',
+          element:<ApprovedContact></ApprovedContact>
+          },
+          {
+          path:'approvedPremium',
+          element: <ApprovedPremium></ApprovedPremium>
+          },
+          {
+            path:'adminLogout',
+            element:<AdminLogout></AdminLogout>
+            },
+           
 
         ]
       },
