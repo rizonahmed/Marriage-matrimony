@@ -6,14 +6,14 @@ import { loadStripe } from '@stripe/stripe-js';
 const striptPromise = loadStripe(import.meta.env.VITE_strp_pk);
 
 const Payment = () => {
-    const payAmount = 5;
+    const totalPayment = 5;
 
     return (
         <div className='mt-32'>
             <h1>Payment Page</h1>
             <div>
                 <Elements stripe={striptPromise}>
-                    <CheckOut payAmount={payAmount}></CheckOut>
+                    <CheckOut totalPayment={totalPayment}></CheckOut>
                 </Elements>
             </div>
 
