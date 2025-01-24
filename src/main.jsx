@@ -36,6 +36,7 @@ import ApprovedContact from './AdminDashboard/ApprovedContact.jsx'
 import ApprovedPremium from './AdminDashboard/ApprovedPremium.jsx'
 import AdminLogout from './AdminDashboard/AdminLogout.jsx'
 import AdminDash from './AdminDashboard/AdminDash.jsx'
+import Payment from './PaymentMethod/Payment.jsx'
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,13 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path:'payment',
+        element:<Payment></Payment>
+      },
+      {
+
       },
       {
         path: '/dashboard',

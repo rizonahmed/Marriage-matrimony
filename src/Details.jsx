@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
 import axios from "axios";
 import Swal from "sweetalert2"; // Import SweetAlert
@@ -125,9 +125,11 @@ const Details = () => {
             Add to Favourites
           </button>
 
+          <Link to='/payment'>
           <button className="bg-green-600 text-white px-6 py-3 rounded-full shadow-xl transform transition-transform hover:bg-green-700 hover:scale-105 focus:outline-none">
             Request Contact Information
           </button>
+          </Link>
         </div>
 
         <div className="mt-6 text-gray-700 space-y-2 text-center">

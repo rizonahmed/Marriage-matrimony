@@ -2,17 +2,17 @@ import { createContext, useEffect, useState } from "react";
 import { auth, } from "./firebase.init";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import useAxiosSecure from "./Hooks/useAxiosSecure";
+import useAxiosPublic from "./Hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null)
 const googleProvider = new GoogleAuthProvider()
 
 const AuthProvider = ({ children }) => {
      const axiosSecure = useAxiosSecure()
+     const axiosPublic = useAxiosPublic()
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
-
-    console.log(user);
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
                 try{
                     const res = await axiosSecure.post('/jwt', userInfo)
                     const data = await res.data
-                    console.log('jwt res ' , data);
+                    // console.log('jwt res ' , data);
 
                 }
 
@@ -64,7 +64,9 @@ const AuthProvider = ({ children }) => {
             const removeToken = async () => {
 
                     try{
-                        const res = axiosSecure
+                        const res = await axiosPublic.post('/logout')
+                        const data = await res.data
+                        console.log(' remove token  success' , data );
                     }
                     catch(error){
                         console.log(error);
