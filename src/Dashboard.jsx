@@ -60,7 +60,7 @@ const Dashboard = () => {
                                 // Logout Button
                                 <button
                                     onClick={handleLogout}
-                                    className="w-full py-2 px-4 rounded-lg shadow-sm flex items-center gap-1 justify-center font-medium transition duration-300
+                                    className="w-full py-2 px-4 rounded-lg shadow-sm text-sm md:text-base flex items-center gap-1 justify-center font-medium transition duration-300
                                         text-red-500 bg-white border border-red-500 hover:bg-red-500 hover:text-white"
                                 >
                                     <span>{item.icon || <AiOutlineLogout />}</span>

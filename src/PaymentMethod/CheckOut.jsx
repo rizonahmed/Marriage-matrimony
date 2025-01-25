@@ -100,7 +100,7 @@ const CheckOut = ({ totalPayment, data }) => {
 
         setTimeout(() => {
             navigate('/dashboard')
-        }, 1000);
+        }, 1500);
 
 
       }
