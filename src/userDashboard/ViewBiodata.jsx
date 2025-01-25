@@ -41,7 +41,7 @@ const ViewBiodata = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios
-                    .post(`http://localhost:5000/biodata/make-premium`, { email: user.email })
+                    .post(`http://localhost:5000/premium`, { email: user.email , isPremium:false })
                     .then(() => {
                         Swal.fire("Success", "Your biodata has been sent for premium approval!", "success");
                     })
@@ -96,7 +96,8 @@ const ViewBiodata = () => {
             </div>
 
             <div className="mt-8 text-center">
-                <button
+                <button 
+                 
                     className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
                     onClick={handleMakePremium}
                 >

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../AuthProvider';
+import Swal from 'sweetalert2';
 
 const CreateData = () => {
     const { user } = useContext(AuthContext);
@@ -65,9 +66,10 @@ const CreateData = () => {
             const response = await axios.post('http://localhost:5000/biodata', biodata);
 
             if (response.status === 201) {
-                alert('Biodata created successfully!');
+                 Swal.fire("Success", "Your biodata has beeen created successfully", "success");
+                 
             } else {
-                alert('Error creating biodata.');
+                Swal.fire("error", "Find some error!");
             }
         } catch (error) {
             console.error('Error submitting biodata:', error);

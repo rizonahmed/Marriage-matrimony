@@ -9,9 +9,9 @@ const Payment = () => {
     const totalPayment = 5;
 
     return (
-        <div className='mt-32'>
+        <div className='mt-32 '>
             <h1>Payment Page</h1>
-            <div>
+            <div className='w-10/12 mx-auto'>
                 <Elements stripe={striptPromise}>
                     <CheckOut totalPayment={totalPayment}></CheckOut>
                 </Elements>
