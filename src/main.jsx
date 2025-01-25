@@ -127,6 +127,11 @@ const router = createBrowserRouter([
         path: '/details/:id',
         element: <Private><Details></Details></Private>,
         loader: ({ params }) => fetch(` http://localhost:5000/biodata/${params.id}`)
+      },
+      {
+        path: '/payment/:id',
+        element: <Private><Payment></Payment></Private>,
+        loader: ({ params }) => fetch(` http://localhost:5000/biodata/${params.id}`)
       }
     ]
   },

@@ -125,7 +125,7 @@ const Details = () => {
             Add to Favourites
           </button>
 
-          <Link to='/payment'>
+          <Link to={`/payment/${biodata?._id}`}>
           <button className="bg-green-600 text-white px-6 py-3 rounded-full shadow-xl transform transition-transform hover:bg-green-700 hover:scale-105 focus:outline-none">
             Request Contact Information
           </button>
