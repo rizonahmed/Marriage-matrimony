@@ -27,7 +27,7 @@ const Details = () => {
     };
 
     checkIfPremium();
-  }, [biodata.id]); // Dependency array to run the effect when biodata.id changes
+  }, [biodata.id]);  
 
   const handleAddToFavourites = async () => {
     try {

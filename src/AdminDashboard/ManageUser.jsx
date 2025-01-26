@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import { axiosSecure } from '../Hooks/useAxiosSecure';
 
 const ManageUser = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [premium, setPremium]=useState([])
+     console.log(premium);
 
     // Fetch users from the server
     const fetchUsers = async () => {
@@ -33,6 +36,20 @@ const ManageUser = () => {
             setLoading(false);
         }
     };
+
+    useEffect(()=>{
+        const fetchPremium =async ()=> {
+                try{
+                    const res = await axiosSecure.get('/premium')
+                    const data = await res.data
+                    setPremium(data)
+                }
+                catch(error){
+                    console.log(error.message);
+                }
+        }
+        fetchPremium()
+    },[])
 
     // Fetch users on component mount
     useEffect(() => {
