@@ -2,4 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
- 
+@keyframes borderColorChange {
+    0% {
+      border-color: red;
+    }
+    10% {
+      border-color: blue;
+    }
+    20% {
+      border-color: green;
+    }
+    30% {
+      border-color: rgb(50, 198, 218);
+    }
+    40% {
+      border-color: orange;
+    }
+    50% {
+      border-color: purple;
+    }
+    60% {
+      border-color: cyan;
+    }
+    70% {
+      border-color: magenta;
+    }
+    80% {
+      border-color: lime;
+    }
+    90% {
+      border-color: pink;
+    }
+    100% {
+      border-color: red;
+    }
+  }
+  
+  .animated-border {
+    border: 6px solid red; 
+    animation: borderColorChange 6s infinite; 
+    border-radius: 20px; 
+  }
