@@ -154,6 +154,7 @@ const ManageUser = () => {
                                                         Make Premium
                                                     </button>
                                                 )}
+                                                
                                             </div>
                                         </td>
                                     </tr>

@@ -37,6 +37,7 @@ import ApprovedPremium from './AdminDashboard/ApprovedPremium.jsx'
 import AdminLogout from './AdminDashboard/AdminLogout.jsx'
 import AdminDash from './AdminDashboard/AdminDash.jsx'
 import Payment from './PaymentMethod/Payment.jsx'
+import GotMarried from './userDashboard/GotMarried.jsx'
 
 const router = createBrowserRouter([
   {
@@ -69,8 +70,8 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path:'payment',
-        element:<Payment></Payment>
+        path: 'payment',
+        element: <Payment></Payment>
       },
       {
 
@@ -81,7 +82,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: 'createData',
-            element:<Createdata></Createdata>
+            element: <Createdata></Createdata>
           },
           {
             path: 'viewBiodata',
@@ -89,37 +90,43 @@ const router = createBrowserRouter([
           },
           {
             path: 'myFavourite',
-            element:<MyFavourite></MyFavourite>
+            element: <MyFavourite></MyFavourite>
           },
           {
             path: 'myRequest',
             element: <MyRequest></MyRequest>
           },
           {
-          path:'userLogout',
-          element:<UserLogout></UserLogout>
+            path: 'gotMarried',
+            element: <GotMarried></GotMarried>
           },
           {
-          path:'adminDash',
-          element:<AdminDash></AdminDash>
+            path: 'userLogout',
+            element: <UserLogout></UserLogout>
+          },
+
+
+          {
+            path: 'adminDash',
+            element: <AdminDash></AdminDash>
           },
           {
-          path:'manageUser',
-          element:<ManageUser></ManageUser>
+            path: 'manageUser',
+            element: <ManageUser></ManageUser>
           },
           {
-          path:'approvedContact',
-          element:<ApprovedContact></ApprovedContact>
+            path: 'approvedContact',
+            element: <ApprovedContact></ApprovedContact>
           },
           {
-          path:'approvedPremium',
-          element: <ApprovedPremium></ApprovedPremium>
+            path: 'approvedPremium',
+            element: <ApprovedPremium></ApprovedPremium>
           },
           {
-            path:'adminLogout',
-            element:<AdminLogout></AdminLogout>
-            },
-           
+            path: 'adminLogout',
+            element: <AdminLogout></AdminLogout>
+          },
+
 
         ]
       },
@@ -134,9 +141,9 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(` http://localhost:5000/biodata/${params.id}`)
       },
       {
-        path:'/premiumDetails/:email',
-        element:<Details></Details>,
-        loader: ({params})=> fetch(`http://localhost:5000/premiumDetails/${params.email}`)
+        path: '/premiumDetails/:email',
+        element: <Details></Details>,
+        loader: ({ params }) => fetch(`http://localhost:5000/premiumDetails/${params.email}`)
       }
     ]
   },

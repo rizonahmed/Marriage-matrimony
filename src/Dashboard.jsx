@@ -8,6 +8,7 @@ import {
     AiOutlineUsergroupAdd,
 } from 'react-icons/ai';
 import useAdmin from './Hooks/useAdmin';
+import { GiEngagementRing } from 'react-icons/gi';
 
 const Dashboard = () => {
     const location = useLocation();
@@ -33,6 +34,7 @@ const Dashboard = () => {
         { name: 'View Biodata', link: '/dashboard/viewBiodata', icon: <AiOutlineFile /> },
         { name: 'My Favourites', link: '/dashboard/myFavourite', icon: <AiOutlineHeart /> },
         { name: 'My Requests', link: '/dashboard/myRequest', icon: <AiOutlineFile /> },
+        { name: 'Got Married', link: '/dashboard/gotMarried', icon: <GiEngagementRing /> },
         { name: 'Logout', isLogout: true },
     ];
 
