@@ -99,7 +99,7 @@ const CheckOut = ({ totalPayment, data }) => {
         postPaymentInfo();
 
         setTimeout(() => {
-            navigate('/dashboard')
+            navigate('/dashboard/myRequest')
         }, 1500);
 
 

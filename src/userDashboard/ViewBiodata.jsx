@@ -46,14 +46,15 @@ const ViewBiodata = () => {
                     biodataId: biodata.id,
                     isPremium: false,
                 };
+                console.log(postData);
 
                 axios
                     .post(`http://localhost:5000/premium`, postData)
                     .then(() => {
                         Swal.fire("Success", "Your biodata has been sent for premium approval!", "success");
                     })
-                    .catch(() => {
-                        Swal.fire("Error", "Failed to send biodata for premium approval.", "error");
+                    .catch((error) => {
+                        Swal.fire("Error", "Already requested !! wait for admin response", "error");
                     });
             }
         });
