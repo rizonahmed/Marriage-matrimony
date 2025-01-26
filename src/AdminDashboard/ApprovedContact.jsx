@@ -10,21 +10,24 @@ const ApprovedContact = () => {
     useEffect(() => {
         const fetchRequests = async () => {
             try {
-                const res = await axiosSecure.get('/payments'); // Fetch all contact requests
-                // Filter the requests with status 'approved'
-                const approvedRequests = res.data.filter(req => req.status === 'approved');
+                const res = await axiosSecure.get('/allPayments'); // Fetch all contact requests
+                console.log("Fetched Data:", res.data); // Debug: Log the fetched data
+
+                // Check the status value and filter accordingly
+                const approvedRequests = res.data.filter(req => req.status.toLowerCase() !== 'approved');
                 setRequests(approvedRequests);
             } catch (err) {
                 console.error('Error fetching approved requests:', err);
             }
         };
+
         fetchRequests();
     }, [axiosSecure]);
 
     // Handle approve button click
     const handleApprove = async (paymentId) => {
         try {
-            const res = await axiosSecure.patch(`/payments/${paymentId}`, { status: 'approved' }); 
+            const res = await axiosSecure.patch(`/payments/${paymentId}`, { status: 'approved' });
             Swal.fire({
                 title: 'Success!',
                 text: 'The contact request has been approved!',
@@ -50,7 +53,7 @@ const ApprovedContact = () => {
                         <th className="px-4 py-2 border">Name</th>
                         <th className="px-4 py-2 border">Email</th>
                         <th className="px-4 py-2 border">Biodata Id</th>
-                        <th className="px-4 py-2 border">Status</th>
+                        <th className="px-4 py-2 border">Payment Date</th>
                         <th className="px-4 py-2 border">Action</th>
                     </tr>
                 </thead>
@@ -61,11 +64,11 @@ const ApprovedContact = () => {
                                 <td className="px-4 py-2 border">{request.name}</td>
                                 <td className="px-4 py-2 border">{request.contactEmail}</td>
                                 <td className="px-4 py-2 border">{request.biodataId}</td>
-                                <td className="px-4 py-2 border">{request.status}</td>
+                                <td className="px-4 py-2 border">{request.paymentDate}</td>
                                 <td className="px-4 py-2 border">
                                     <button
                                         onClick={() => handleApprove(request._id)}
-                                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 focus:outline-none"
+                                        className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 focus:outline-none"
                                     >
                                         Approve
                                     </button>

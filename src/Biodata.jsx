@@ -20,9 +20,12 @@ const Biodata = () => {
                 const response = await axios.get("http://localhost:5000/biodata");
                 const data = response.data;
                 console.log(data);
-
+    
+                // Sort data by id in ascending order
+                const sortedData = data.sort((a, b) => a.id - b.id);
+    
                 // Set users and divisions
-                setUsers(data);
+                setUsers(sortedData);
                 const uniqueDivisions = [...new Set(data.map((user) => user.permanentDivision))].filter(Boolean);
                 setDivisions(uniqueDivisions);
             } catch (error) {
@@ -31,10 +34,10 @@ const Biodata = () => {
                 setLoading(false);
             }
         };
-
+    
         fetchData();
     }, []);
-
+    
     // Apply filters
     const filteredUsers = users.filter((user) =>
         user.age >= filters.ageRange[0] &&
