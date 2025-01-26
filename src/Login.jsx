@@ -29,7 +29,7 @@ const Login = () => {
 
                 setTimeout(() => {
                     navigate('/');
-                }, 2000);
+                }, 1500);
             })
             .catch((error) => {
                 Swal.fire({

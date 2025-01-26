@@ -78,7 +78,9 @@ const ApprovedContact = () => {
                     ) : (
                         <tr>
                             <td colSpan="5" className="text-center py-4 text-gray-600">
-                                No approved contact requests found.
+                                <div className="flex justify-center  h-screen">
+                                    <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                                </div>
                             </td>
                         </tr>
                     )}

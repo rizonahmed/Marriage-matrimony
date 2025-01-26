@@ -71,7 +71,7 @@ const ApprovedPremium = () => {
                         requests.map((request) => (
                             <tr key={request._id} className="border-b hover:bg-gray-50">
                                 <td className="px-6 py-4">{request.name}</td>
-                                <td className="px-6 py-4">{request.contactEmail}</td>
+                                <td className="px-6 py-4">{request.email}</td>
                                 <td className="px-6 py-4">{request.biodataId}</td>
                                 <td className="px-6 py-4">
                                     {request.status !== 'premium' ? (
@@ -92,7 +92,9 @@ const ApprovedPremium = () => {
                     ) : (
                         <tr>
                             <td colSpan="4" className="text-center py-4 text-gray-600">
-                                No premium requests found.
+                                <div className="flex justify-center h-screen">
+                                    <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                                </div>
                             </td>
                         </tr>
                     )}

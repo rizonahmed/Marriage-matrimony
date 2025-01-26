@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
 import axios from "axios";
@@ -8,6 +8,26 @@ import { AuthContext } from "./AuthProvider";
 const Details = () => {
   const { user } = useContext(AuthContext); // Access user from context
   const biodata = useLoaderData();
+  const [isPremium, setIsPremium] = useState(false);
+
+  useEffect(() => {
+    const checkIfPremium = async () => {
+      try {
+        // Fetch the premium biodata list
+        const response = await axios.get("http://localhost:5000/premium");
+        const premiumBiodata = response.data;
+
+        const foundPremium = premiumBiodata.some(
+          (item) => item.email === user?.email && item.status === "premium"
+        );
+        setIsPremium(foundPremium);
+      } catch (error) {
+        console.error("Error fetching premium data:", error);
+      }
+    };
+
+    checkIfPremium();
+  }, [biodata.id]); // Dependency array to run the effect when biodata.id changes
 
   const handleAddToFavourites = async () => {
     try {
@@ -126,22 +146,24 @@ const Details = () => {
           </button>
 
           <Link to={`/payment/${biodata?._id}`}>
-          <button className="bg-green-600 text-white px-6 py-3 rounded-full shadow-xl transform transition-transform hover:bg-green-700 hover:scale-105 focus:outline-none">
-            Request Contact Information
-          </button>
+            <button className="bg-green-600 text-white px-6 py-3 rounded-full shadow-xl transform transition-transform hover:bg-green-700 hover:scale-105 focus:outline-none">
+              Request Contact Information
+            </button>
           </Link>
         </div>
 
-        <div className="mt-6 text-gray-700 space-y-2 text-center">
-          <p>
-            <strong>Contact Email:</strong> {biodata.contactEmail || "N/A"}
-          </p>
-          <p>
-            <strong>Mobile Number:</strong> {biodata.mobileNumber || "N/A"}
-          </p>
-        </div>
+        {/* Conditional Rendering of Contact Information */}
+        {isPremium && (
+          <div className="mt-6 text-gray-700 space-y-2 text-center">
+            <p>
+              <strong>Contact Email:</strong> {biodata.contactEmail || "N/A"}
+            </p>
+            <p>
+              <strong>Mobile Number:</strong> {biodata.mobileNumber || "N/A"}
+            </p>
+          </div>
+        )}
       </div>
-
     </div>
   );
 };

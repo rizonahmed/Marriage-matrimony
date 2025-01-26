@@ -66,8 +66,8 @@ const CreateData = () => {
             const response = await axios.post('http://localhost:5000/biodata', biodata);
 
             if (response.status === 201) {
-                 Swal.fire("Success", "Your biodata has beeen created successfully", "success");
-                 
+                Swal.fire("Success", "Your biodata has beeen created successfully", "success");
+
             } else {
                 Swal.fire("error", "Find some error!");
             }
@@ -267,14 +267,17 @@ const CreateData = () => {
                 {/* Relationship Status */}
                 <div>
                     <label className="block font-medium">Relationship Status</label>
-                    <input
-                        type="text"
+                    <select
                         name="relationshipStatus"
                         value={biodata.relationshipStatus}
                         onChange={handleChange}
                         required
                         className="w-full p-3 border border-gray-300 rounded-lg"
-                    />
+                    >
+                        <option value="">Select Relationship Status</option>
+                        <option value="Single">Single</option>
+                        <option value="Divorced">Divorced</option>
+                    </select>
                 </div>
 
                 {/* Contact Email */}
