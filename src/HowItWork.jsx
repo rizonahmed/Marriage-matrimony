@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 const HowItWorks = () => {
@@ -195,8 +196,8 @@ const HowItWorks = () => {
                 {/* Call to Action */}
                 <div className="mt-16">
                     <Link to="/biodata">
-                        <button className="bg-blue-500 text-white text-lg px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
-                            Find Partner
+                        <button className="bg-blue-500 animated-border flex mx-auto text-white text-lg px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Find Partner  <MdKeyboardArrowRight className="text-xl" />
                         </button>
                     </Link>
                 </div>

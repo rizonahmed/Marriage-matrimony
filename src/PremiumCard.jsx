@@ -65,7 +65,7 @@ const PremiumCard = () => {
                                     <p><strong>Division:</strong> {matchingBiodata.permanentDivision}</p>
                                 </div>
 
-                                <Link to={`/details/${user._id}`}>
+                                <Link to={`/premiumDetails/${user.email}`}>
                                     <button
                                         className="w-full py-2 mt-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 flex items-center justify-center gap-2"
                                     >
