@@ -119,7 +119,7 @@ const Details = () => {
         <div className="mt-8 flex gap-6 justify-center">
           <button
             onClick={handleAddToFavourites}
-            className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-full shadow-xl transform transition-transform hover:bg-blue-700 hover:scale-105 focus:outline-none"
+            className="flex items-center justify-center bg-pink-500 text-white px-6 py-3 rounded-full shadow-xl transform transition-transform hover:bg-pink-600 hover:scale-105 focus:outline-none"
           >
             <AiFillHeart className="mr-2 text-xl" />
             Add to Favourites

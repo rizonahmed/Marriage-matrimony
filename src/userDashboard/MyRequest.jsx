@@ -86,7 +86,7 @@ const MyRequest = () => {
                                     <td className="px-4 py-2">
                                         <span
                                             className={`px-3 py-1 rounded-full ${
-                                                request.status === "Approve"
+                                                request.status === "approved"
                                                     ? "bg-green-500 text-white"
                                                     : "bg-yellow-500 text-white"
                                             }`}
@@ -94,7 +94,7 @@ const MyRequest = () => {
                                             {request.status}
                                         </span>
                                     </td>
-                                    {request.status === "Approve" ? (
+                                    {request.status === "approved" ? (
                                         <>
                                             <td className="px-4 py-2">{request.mobileNumber}</td>
                                             <td className="px-4 py-2">{request.contactEmail}</td>
