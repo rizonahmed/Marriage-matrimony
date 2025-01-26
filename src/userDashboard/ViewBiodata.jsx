@@ -40,8 +40,15 @@ const ViewBiodata = () => {
             cancelButtonText: "No, Cancel",
         }).then((result) => {
             if (result.isConfirmed) {
+                const postData = {
+                    name: biodata.name,
+                    email: user.email,
+                    biodataId: biodata.id,
+                    isPremium: false,
+                };
+
                 axios
-                    .post(`http://localhost:5000/premium`, { email: user.email , isPremium:false })
+                    .post(`http://localhost:5000/premium`, postData)
                     .then(() => {
                         Swal.fire("Success", "Your biodata has been sent for premium approval!", "success");
                     })

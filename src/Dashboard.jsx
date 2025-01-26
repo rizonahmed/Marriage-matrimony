@@ -39,8 +39,8 @@ const Dashboard = () => {
     const adminMenuItems = [
         { name: 'Admin Dashboard', link: '/dashboard/adminDash', icon: <AiOutlineUsergroupAdd /> },
         { name: 'Manage Users', link: '/dashboard/manageUser', icon: <AiOutlineUsergroupAdd /> },
-        { name: 'Approved Premium', link: '/dashboard/approvedContact', icon: <AiOutlineFile /> },
-        { name: 'Approved Contact Request', link: '/dashboard/approvedPremium', icon: <AiOutlineFile /> },
+        { name: 'Approved Contact Request', link: '/dashboard/approvedContact', icon: <AiOutlineFile /> },
+        { name: 'Approved Premium Request', link: '/dashboard/approvedPremium', icon: <AiOutlineFile /> },
         { name: 'Logout', isLogout: true },
     ];
 
