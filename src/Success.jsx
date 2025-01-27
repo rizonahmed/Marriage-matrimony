@@ -24,7 +24,7 @@ const Success = () => {
   );
 
   return (
-    <div className="bg-gray-50 py-16 px-4 md:px-8">
+    <div className="bg-gray-50 pb-16 px-4 md:px-8">
       <div className="max-w-screen-xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Success Stories</h2>
         <p className="text-xl text-gray-600 mb-12">
@@ -35,7 +35,7 @@ const Success = () => {
           {sortedStories.map((story) => (
             <div
               key={story.id}
-              className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center"
+              className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center transition-transform transform hover:scale-105 hover:shadow-xl"
             >
               <img
                 src={story.coupleImage} // Image loaded from API

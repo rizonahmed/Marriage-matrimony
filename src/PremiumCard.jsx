@@ -22,13 +22,25 @@ const PremiumCard = () => {
 
                 // Filter premium users by status 'premium'
                 const filteredPremiumUsers = premiumData.filter(user => user.status === 'premium');
-                setPremiumUsers(filteredPremiumUsers);
+
+                // Sort premium users by age in descending order
+                const sortedPremiumUsers = filteredPremiumUsers.sort((a, b) => {
+                    const matchingBiodataA = biodata.find(bio => bio.contactEmail === a.email);
+                    const matchingBiodataB = biodata.find(bio => bio.contactEmail === b.email);
+
+                    if (matchingBiodataA && matchingBiodataB) {
+                        return matchingBiodataB.age - matchingBiodataA.age; // Sorting in descending order by age
+                    }
+                    return 0;
+                });
+
+                setPremiumUsers(sortedPremiumUsers); // Set sorted premium users
             })
             .catch((error) => console.error("Error fetching premium data:", error));
-    }, []);
+    }, [biodata]);
 
     return (
-        <div className="container  py-12 w-11/12 mx-auto">
+        <div className="container py-12 w-11/12 mx-auto">
             <h1 className="text-3xl pb-8 font-serif text-center text-gray-800">Premium Users</h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -34,7 +34,7 @@ const HowItWorks = () => {
                                 <p className="text-gray-600 text-lg mb-6">
                                     Create an account by providing basic information and preferences to get started on your journey.
                                 </p>
-                                <Link to="/signup" className="inline-block text-blue-600 hover:underline font-semibold">
+                                <Link   className="inline-block text-blue-600 hover:underline font-semibold">
                                     Learn More
                                 </Link>
                             </div>
@@ -64,7 +64,7 @@ const HowItWorks = () => {
                                 <p className="text-gray-600 text-lg mb-6">
                                     Personalize your profile with your preferences, hobbies, and interests to find compatible matches.
                                 </p>
-                                <Link to="/profile" className="inline-block text-blue-600 hover:underline font-semibold">
+                                <Link   className="inline-block text-blue-600 hover:underline font-semibold">
                                     Learn More
                                 </Link>
                             </div>
@@ -78,7 +78,7 @@ const HowItWorks = () => {
                     >
                         <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                             {/* Front Side */}
-                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 text-white rounded-xl shadow-lg p-8">
+                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-gray-500 via-orange-600 to-gray-700 text-white rounded-xl shadow-lg p-8">
                                 <div className="bg-white text-blue-500 p-4 rounded-full mb-6">
                                     <span className="text-3xl font-semibold">3</span>
                                 </div>
@@ -94,7 +94,7 @@ const HowItWorks = () => {
                                 <p className="text-gray-600 text-lg mb-6">
                                     Search and filter through profiles to find people who match your preferences and values.
                                 </p>
-                                <Link to="/matches" className="inline-block text-blue-600 hover:underline font-semibold">
+                                <Link   className="inline-block text-blue-600 hover:underline font-semibold">
                                     Learn More
                                 </Link>
                             </div>
@@ -108,7 +108,7 @@ const HowItWorks = () => {
                     >
                         <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                             {/* Front Side */}
-                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 text-white rounded-xl shadow-lg p-8">
+                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-gray-500 via-orange-600 to-gray-700 text-white rounded-xl shadow-lg p-8">
                                 <div className="bg-white text-blue-500 p-4 rounded-full mb-6">
                                     <span className="text-3xl font-semibold">4</span>
                                 </div>
@@ -124,7 +124,7 @@ const HowItWorks = () => {
                                 <p className="text-gray-600 text-lg mb-6">
                                     Once you find a match, send them a message to start a conversation and get to know them.
                                 </p>
-                                <Link to="/messages" className="inline-block text-blue-600 hover:underline font-semibold">
+                                <Link   className="inline-block text-blue-600 hover:underline font-semibold">
                                     Learn More
                                 </Link>
                             </div>
@@ -154,7 +154,7 @@ const HowItWorks = () => {
                                 <p className="text-gray-600 text-lg mb-6">
                                     Upgrade to Premium for unlimited messaging, priority matching, and other exclusive benefits.
                                 </p>
-                                <Link to="/premium" className="inline-block text-blue-600 hover:underline font-semibold">
+                                <Link   className="inline-block text-blue-600 hover:underline font-semibold">
                                     Learn More
                                 </Link>
                             </div>
@@ -184,7 +184,7 @@ const HowItWorks = () => {
                                 <p className="text-gray-600 text-lg mb-6">
                                     Reach out to our support team for assistance, inquiries, or feedback. We value your input!
                                 </p>
-                                <Link to="/contact" className="inline-block text-blue-600 hover:underline font-semibold">
+                                <Link   className="inline-block text-blue-600 hover:underline font-semibold">
                                     Learn More
                                 </Link>
                             </div>
