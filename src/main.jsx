@@ -38,6 +38,7 @@ import AdminLogout from './AdminDashboard/AdminLogout.jsx'
 import AdminDash from './AdminDashboard/AdminDash.jsx'
 import Payment from './PaymentMethod/Payment.jsx'
 import GotMarried from './userDashboard/GotMarried.jsx'
+import SuccessStory from './AdminDashboard/SuccessStory.jsx'
 
 const router = createBrowserRouter([
   {
@@ -121,6 +122,10 @@ const router = createBrowserRouter([
           {
             path: 'approvedPremium',
             element: <ApprovedPremium></ApprovedPremium>
+          },
+          {
+            path:'successStory',
+            element:<SuccessStory></SuccessStory>
           },
           {
             path: 'adminLogout',

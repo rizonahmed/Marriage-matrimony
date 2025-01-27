@@ -43,6 +43,7 @@ const Dashboard = () => {
         { name: 'Manage Users', link: '/dashboard/manageUser', icon: <AiOutlineUsergroupAdd /> },
         { name: 'Approved Contact Request', link: '/dashboard/approvedContact', icon: <AiOutlineFile /> },
         { name: 'Approved Premium Request', link: '/dashboard/approvedPremium', icon: <AiOutlineFile /> },
+        { name: 'Success Story', link: '/dashboard/successStory', icon: <AiOutlineFile /> },
         { name: 'Logout', isLogout: true },
     ];
 
