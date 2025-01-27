@@ -3,13 +3,14 @@ import axios from "axios";
 
 const Success = () => {
   const [successStories, setSuccessStories] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-  // Fetch success stories from API
   useEffect(() => {
     const fetchStories = async () => {
       try {
         const response = await axios.get("http://localhost:5000/married");
-        setSuccessStories(response.data); // Set the fetched data
+        setSuccessStories(response.data);
       } catch (error) {
         console.error("Error fetching success stories:", error);
       }
@@ -18,10 +19,10 @@ const Success = () => {
     fetchStories();
   }, []);
 
-  // Sort stories in ascending order by marriage date
-  const sortedStories = [...successStories].sort(
-    (a, b) => new Date(a.marriageDate) - new Date(b.marriageDate)
-  );
+  // Pagination logic
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentStories = successStories.slice(startIndex, startIndex + itemsPerPage);
+  const totalPages = Math.ceil(successStories.length / itemsPerPage);
 
   return (
     <div className="bg-gray-50 pb-16 px-4 md:px-8">
@@ -32,33 +33,53 @@ const Success = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedStories.map((story) => (
+          {currentStories.map((story) => (
             <div
               key={story.id}
-              className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center transition-transform transform hover:scale-105 hover:shadow-xl"
+              className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center transition-transform transform hover:scale-105"
             >
               <img
-                src={story.coupleImage} // Image loaded from API
+                src={story.coupleImage}
                 alt="Couple"
                 className="w-24 h-24 object-cover rounded-full mb-4"
               />
               <h3 className="text-lg font-semibold text-gray-800">
                 Married on {new Date(story.marriageDate).toLocaleDateString()}
               </h3>
-              <div className="flex items-center my-3">
-                {/* Static star rating */}
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <span
-                    key={index}
-                    className={`text-yellow-500 ${index < 4 ? "text-yellow-500" : "text-gray-300"}`} // Static 4 stars
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
-              <p className="text-gray-600 text-center">{story.successStory}</p> {/* Success story */}
+              <p className="text-gray-600 text-center">{story.successStory}</p>
             </div>
           ))}
+        </div>
+
+        {/* Pagination */}
+        <div className="flex justify-center mt-8">
+          <button
+            className="px-4 py-2 mx-1 text-gray-500 bg-white rounded-md disabled:opacity-50"
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              className={`px-4 py-2 mx-1 rounded-md ${
+                currentPage === index + 1
+                  ? "bg-blue-600 text-white"
+                  : "bg-white text-gray-700 hover:bg-blue-600 hover:text-white"
+              }`}
+              onClick={() => setCurrentPage(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+          <button
+            className="px-4 py-2 mx-1 text-gray-500 bg-white rounded-md disabled:opacity-50"
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>

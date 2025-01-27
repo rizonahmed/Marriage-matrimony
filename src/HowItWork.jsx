@@ -18,7 +18,7 @@ const HowItWorks = () => {
                     >
                         <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                             {/* Front Side */}
-                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 text-white rounded-xl shadow-lg p-8">
+                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-gray-500 via-indigo-600 to-gray-700 text-white rounded-xl shadow-lg p-8">
                                 <div className="bg-white text-blue-500 p-4 rounded-full mb-6">
                                     <span className="text-3xl font-semibold">1</span>
                                 </div>
@@ -138,7 +138,7 @@ const HowItWorks = () => {
                     >
                         <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                             {/* Front Side */}
-                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-teal-500 via-gray-600 to-teal-700 text-white rounded-xl shadow-lg p-8">
+                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-gray-500 via-teal-600 to-gray-700 text-white rounded-xl shadow-lg p-8">
                                 <div className="bg-white text-blue-500 p-4 rounded-full mb-6">
                                     <span className="text-3xl font-semibold">5</span>
                                 </div>
@@ -168,7 +168,7 @@ const HowItWorks = () => {
                     >
                         <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                             {/* Front Side */}
-                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 text-white rounded-xl shadow-lg p-8">
+                            <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden] bg-gradient-to-r from-gray-500 via-indigo-600 to-gray-700 text-white rounded-xl shadow-lg p-8">
                                 <div className="bg-white text-blue-500 p-4 rounded-full mb-6">
                                     <span className="text-3xl font-semibold">7</span>
                                 </div>
@@ -184,7 +184,7 @@ const HowItWorks = () => {
                                 <p className="text-gray-600 text-lg mb-6">
                                     Reach out to our support team for assistance, inquiries, or feedback. We value your input!
                                 </p>
-                                <Link   className="inline-block text-blue-600 hover:underline font-semibold">
+                                <Link   className="inline-block  text-blue-600 hover:underline font-semibold">
                                     Learn More
                                 </Link>
                             </div>
@@ -196,7 +196,7 @@ const HowItWorks = () => {
                 {/* Call to Action */}
                 <div className="mt-16">
                     <Link to="/biodata">
-                        <button className="bg-blue-500 animated-border flex items-center mx-auto text-white text-lg px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                        <button className="bg-gradient-to-r from-gray-500 via-indigo-600 to-gray-700 animated-border flex items-center mx-auto text-white text-lg px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
                             Find Partner  <MdKeyboardArrowRight className="text-xl" />
                         </button>
                     </Link>

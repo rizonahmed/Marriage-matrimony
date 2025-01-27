@@ -42,6 +42,8 @@ const Galary = () => {
 
   return (
     <div className="bg-gray-50 py-8">
+
+
       <h2 className="text-3xl font-bold text-center mb-6">Choose Your Life Partner </h2>
       <marquee
         behavior="scroll"
@@ -71,6 +73,10 @@ const Galary = () => {
       <p className="text-center text-base mt-6 text-gray-600">
         They are all our user you can choose anyone for marriage.
       </p>
+
+
+
+
     </div>
   );
 };

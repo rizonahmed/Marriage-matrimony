@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { BsLinkedin, BsTwitter } from 'react-icons/bs';
 import { CgFacebook } from 'react-icons/cg';
 import Swal from 'sweetalert2';
 
 import logo from '../src/assets/lottie/logo.png'
+import { FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
     const [email, setEmail] = useState('');
@@ -92,29 +93,29 @@ const Footer = () => {
                 <div className="border-t border-gray-700 pt-6 flex flex-col items-center">
                     
                     <p className="text-sm text-gray-400 text-center">
-                        © 2024  All Rights Reserved.
+                        © 2024  All Rights Reserved by Rizon Ahmed
                     </p>
                     <div className="flex space-x-4 mt-4">
                         <a
-                            href="#"
+                            href="https://www.facebook.com/profile.php?id=61552156421365"
                             className="text-gray-400 hover:text-primary focus:text-primary transition text-xl"
                         >
                             <CgFacebook />
                         </a>
                         <a
-                            href="#"
+                            href="https://x.com/RizonAhmed0486"
                             className="text-gray-400 hover:text-primary focus:text-primary transition text-xl"
                         >
                             <BsTwitter />
                         </a>
                         <a
-                            href="#"
+                            href="https://github.com/rizonahmed"
                             className="text-gray-400 hover:text-primary focus:text-primary transition text-xl"
                         >
-                            <BsInstagram />
+                            <FaGithub/>
                         </a>
                         <a
-                            href="#"
+                            href="https://www.linkedin.com/in/rizon-ahmed/"
                             className="text-gray-400 hover:text-primary focus:text-primary transition text-xl"
                         >
                             <BsLinkedin />
