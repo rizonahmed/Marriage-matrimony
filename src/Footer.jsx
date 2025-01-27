@@ -12,7 +12,6 @@ const Footer = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (email) {
-            console.log(`Email submitted: ${email}`);
             setEmail('');  
 
             Swal.fire({

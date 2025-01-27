@@ -39,6 +39,7 @@ import AdminDash from './AdminDashboard/AdminDash.jsx'
 import Payment from './PaymentMethod/Payment.jsx'
 import GotMarried from './userDashboard/GotMarried.jsx'
 import SuccessStory from './AdminDashboard/SuccessStory.jsx'
+import AdminPrivate from './AdminPrivate.jsx'
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'payment',
-        element: <Payment></Payment>
+        element: <Private><Payment></Payment></Private>
       },
       {
 
@@ -109,23 +110,23 @@ const router = createBrowserRouter([
 
           {
             path: 'adminDash',
-            element: <AdminDash></AdminDash>
+            element: <AdminPrivate><AdminDash></AdminDash> </AdminPrivate>
           },
           {
             path: 'manageUser',
-            element: <ManageUser></ManageUser>
+            element: <AdminPrivate> <ManageUser></ManageUser> </AdminPrivate>
           },
           {
             path: 'approvedContact',
-            element: <ApprovedContact></ApprovedContact>
+            element: <AdminPrivate><ApprovedContact></ApprovedContact></AdminPrivate>
           },
           {
             path: 'approvedPremium',
-            element: <ApprovedPremium></ApprovedPremium>
+            element: <AdminPrivate><ApprovedPremium></ApprovedPremium></AdminPrivate>
           },
           {
             path:'successStory',
-            element:<SuccessStory></SuccessStory>
+            element:<AdminPrivate><SuccessStory></SuccessStory></AdminPrivate>
           },
           {
             path: 'adminLogout',
@@ -147,7 +148,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/premiumDetails/:email',
-        element: <Details></Details>,
+        element: <Private><Details></Details></Private>,
         loader: ({ params }) => fetch(`http://localhost:5000/premiumDetails/${params.email}`)
       }
     ]

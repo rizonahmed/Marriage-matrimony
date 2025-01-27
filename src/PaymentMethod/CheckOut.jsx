@@ -47,7 +47,7 @@ const CheckOut = ({ totalPayment, data }) => {
     if (error) {
       setErrMsg(error?.message);
     } else {
-      console.log("[Payment method]", paymentMethod);
+     
     }
 
     // Confirm payment
@@ -91,7 +91,6 @@ const CheckOut = ({ totalPayment, data }) => {
         const postPaymentInfo = async () => {
           try {
             const res = await axiosSecure.post(`/payments`, contact );
-            console.log("Payment info saved:", res?.data);
           } catch (err) {
             console.error(err);
           }

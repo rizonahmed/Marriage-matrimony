@@ -46,7 +46,6 @@ const ViewBiodata = () => {
                     biodataId: biodata.id,
                     isPremium: false,
                 };
-                console.log(postData);
 
                 axios
                     .post(`http://localhost:5000/premium`, postData)

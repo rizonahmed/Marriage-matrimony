@@ -88,7 +88,7 @@ const Details = () => {
     <div className="bg-gray-100 min-h-screen py-12 px-6 sm:px-8 mt-28">
       <div className="bg-white shadow-xl rounded-3xl max-w-4xl mx-auto p-8 border border-gray-200 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-50">
         <div className="flex justify-center mb-8">
-          <div className="w-full md:w-10/12 h-64 rounded-xl overflow-hidden shadow-xl transform transition-transform hover:scale-110">
+          <div className="w-full md:w-10/12 h-96 rounded-xl overflow-hidden shadow-xl transform transition-transform hover:scale-110">
             <img
               src={biodata.profileImage || "https://via.placeholder.com/150"}
               alt={`${biodata.name || "No Name"}'s Profile`}

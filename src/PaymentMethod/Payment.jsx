@@ -9,7 +9,6 @@ const striptPromise = loadStripe(import.meta.env.VITE_strp_pk);
 
 const Payment = () => {
     const data = useLoaderData()
-    console.log(data);
     const totalPayment = 5;
 
     return (

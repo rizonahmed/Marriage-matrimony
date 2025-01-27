@@ -11,7 +11,6 @@ const ApprovedContact = () => {
         const fetchRequests = async () => {
             try {
                 const res = await axiosSecure.get('/allPayments'); // Fetch all contact requests
-                console.log("Fetched Data:", res.data); // Debug: Log the fetched data
 
                 // Check the status value and filter accordingly
                 const approvedRequests = res.data.filter(req => req.status.toLowerCase() !== 'approved');

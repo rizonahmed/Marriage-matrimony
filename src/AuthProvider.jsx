@@ -38,7 +38,6 @@ const AuthProvider = ({ children }) => {
     
     useEffect(()=> {
         const unSubscribe = onAuthStateChanged(auth, currentUser =>{
-            console.log(currentUser);
           setUser(currentUser)
           setLoading(false)
 
@@ -49,12 +48,10 @@ const AuthProvider = ({ children }) => {
                 try{
                     const res = await axiosSecure.post('/jwt', userInfo)
                     const data = await res.data
-                    // console.log('jwt res ' , data);
-
+                 
                 }
 
                 catch(error){
-                    console.log(error);
                 }
             }
 
@@ -66,10 +63,8 @@ const AuthProvider = ({ children }) => {
                     try{
                         const res = await axiosPublic.post('/logout')
                         const data = await res.data
-                        console.log(' remove token  success' , data );
                     }
                     catch(error){
-                        console.log(error);
                     }
             }
             removeToken()

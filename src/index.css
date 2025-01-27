@@ -3,43 +3,60 @@
 @tailwind utilities;
 
 @keyframes borderColorChange {
-    0% {
-      border-color: red;
-    }
-    10% {
-      border-color: blue;
-    }
-    20% {
-      border-color: green;
-    }
-    30% {
-      border-color: rgb(149, 223, 65);
-    }
-    40% {
-      border-color: rgb(190, 125, 3);
-    }
-    50% {
-      border-color: purple;
-    }
-    60% {
-      border-color: rgb(6, 197, 197);
-    }
-    70% {
-      border-color: rgb(16, 13, 192);
-    }
-    80% {
-      border-color: rgb(3, 192, 3);
-    }
-    90% {
-      border-color: rgb(179, 14, 212);
-    }
-    100% {
-      border-color: rgb(196, 5, 5);
-    }
+  0% {
+    border-color: red;
   }
-  
-  .animated-border {
-    border: 4px solid red; 
-    animation: borderColorChange 6s infinite; 
-    border-radius: 20px; 
+
+  10% {
+    border-color: blue;
   }
+
+  20% {
+    border-color: green;
+  }
+
+  30% {
+    border-color: rgb(149, 223, 65);
+  }
+
+  40% {
+    border-color: rgb(190, 125, 3);
+  }
+
+  50% {
+    border-color: purple;
+  }
+
+  60% {
+    border-color: rgb(6, 197, 197);
+  }
+
+  70% {
+    border-color: rgb(16, 13, 192);
+  }
+
+  80% {
+    border-color: rgb(3, 192, 3);
+  }
+
+  90% {
+    border-color: rgb(179, 14, 212);
+  }
+
+  100% {
+    border-color: rgb(196, 5, 5);
+  }
+}
+
+.animated-border {
+  border: 4px solid red;
+  animation: borderColorChange 6s infinite;
+  border-radius: 20px;
+}
+
+
+
+
+
+ 
+ 

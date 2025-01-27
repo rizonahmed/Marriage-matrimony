@@ -13,15 +13,12 @@ const useAdmin = () => {
         queryFn: async () => {
             try {
                 const res = await axios.get(`http://localhost:5000/users/${user?.email}`);
-                // console.log('Admin check response:', res.data);
                 return res.data;
             } catch (error) {
-                // console.error('Admin check failed:', error);
                 return false;
             }
         }
     })
-    // console.log(isAdmin, user);
     return [isAdmin, isAdminLoading]
 };
 

@@ -48,13 +48,13 @@ const PremiumCard = () => {
                     const matchingBiodata = biodata.find(bio => bio.contactEmail === user.email);
 
                     return matchingBiodata ? (
-                        <div key={user.email} className="w-full bg-white shadow-xl rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div key={user.email} className="w-full bg-white  shadow-xl rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                             <div className="relative">
                                 {/* Image */}
                                 <img
                                     alt="premium-user/image"
                                     src={matchingBiodata.profileImage || "https://via.placeholder.com/150"}
-                                    className="w-full h-56 object-cover rounded-t-lg"
+                                    className="w-full h-64 object-cover rounded-t-lg"
                                 />
 
                                 {/* Premium Label */}

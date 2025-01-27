@@ -3,16 +3,20 @@ import { IoIosInformationCircle } from "react-icons/io";
 
 const Galary = () => {
   const images = [
+    
+   
+    {
+      src: "https://live.staticflickr.com/4241/35583744215_59267c864b_b.jpg",
+      title: "OPo Biswas",
+      author: "Heroin",
+    },
+  
     {
       src: "https://images.prothomalo.com/prothomalo-english%2Fimport%2Fmedia%2F2017%2F06%2F24%2F740eaab5da2b92eed0d30bdbdaf54a3f-Untitled-1.jpg?auto=format%2Ccompress&w=1200",
       title: "Shakib KHan",
       author: "Engineer",
     },
-    {
-      src: "https://www.observerbd.com/2025/01/25/ob_1737812614.jpg",
-      title: "Pori Moni",
-      author: "Doctor",
-    },
+    
     {
       src: "https://ecdn.kalerkantho.com/public/news_images/2023/04/12/1681296258-d7653913ea2d3ef4cb94862251c0fcde.jpg",
       title: "Bubli",
@@ -22,6 +26,11 @@ const Galary = () => {
       src: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202307/90042112-40d0-4504-afaa-3d89cd5cd533-sixteen_nine.jpg?VersionId=jzYNPwVJYUujxN.___LJklFNToe4fz8f&size=690:388",
       title: "Hero Alom",
       author: "Superstar",
+    },
+    {
+      src: "https://www.observerbd.com/2025/01/25/ob_1737812614.jpg",
+      title: "Pori Moni",
+      author: "Doctor",
     },
     {
       src: "https://cdn.daily-sun.com/public/news_images/2023/11/13/1699859550-7f220ada434cde8d19e2472972e31b57.jpg",

@@ -8,7 +8,6 @@ const ManageUser = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
     const [premium, setPremium]=useState([])
-     console.log(premium);
 
     // Fetch users from the server
     const fetchUsers = async () => {
@@ -45,7 +44,6 @@ const ManageUser = () => {
                     setPremium(data)
                 }
                 catch(error){
-                    console.log(error.message);
                 }
         }
         fetchPremium()
