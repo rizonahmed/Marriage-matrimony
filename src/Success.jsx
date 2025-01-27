@@ -1,42 +1,26 @@
-
-const successStories = [
-  {
-    id: 1,
-    coupleImage: "https://via.placeholder.com/150",
-    marriageDate: "2023-01-15",
-    reviewStar: 5,
-    storyText:
-      "We found each other through this platform and couldn't be happier. Thank you!",
-  },
-  {
-    id: 2,
-    coupleImage: "https://via.placeholder.com/150",
-    marriageDate: "2022-06-20",
-    reviewStar: 4,
-    storyText:
-      "It was a wonderful journey finding my partner here. Highly recommend it!",
-  },
-  {
-    id: 3,
-    coupleImage: "https://via.placeholder.com/150",
-    marriageDate: "2021-12-10",
-    reviewStar: 5,
-    storyText:
-      "Best decision we made was joining this platform. Forever grateful!",
-  },
-  {
-    id: 4,
-    coupleImage: "https://via.placeholder.com/150",
-    marriageDate: "2023-03-05",
-    reviewStar: 4,
-    storyText: "We are happily married now thanks to this amazing site.",
-  },
-];
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Success = () => {
-  // Sort stories in ascending to descending order by marriage date
+  const [successStories, setSuccessStories] = useState([]);
+
+  // Fetch success stories from API
+  useEffect(() => {
+    const fetchStories = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/married");
+        setSuccessStories(response.data); // Set the fetched data
+      } catch (error) {
+        console.error("Error fetching success stories:", error);
+      }
+    };
+
+    fetchStories();
+  }, []);
+
+  // Sort stories in ascending order by marriage date
   const sortedStories = [...successStories].sort(
-    (a, b) => new Date(b.marriageDate) - new Date(a.marriageDate)
+    (a, b) => new Date(a.marriageDate) - new Date(b.marriageDate)
   );
 
   return (
@@ -54,7 +38,7 @@ const Success = () => {
               className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center"
             >
               <img
-                src={story.coupleImage}
+                src={story.coupleImage} // Image loaded from API
                 alt="Couple"
                 className="w-24 h-24 object-cover rounded-full mb-4"
               />
@@ -62,18 +46,17 @@ const Success = () => {
                 Married on {new Date(story.marriageDate).toLocaleDateString()}
               </h3>
               <div className="flex items-center my-3">
+                {/* Static star rating */}
                 {Array.from({ length: 5 }).map((_, index) => (
                   <span
                     key={index}
-                    className={`text-yellow-500 ${
-                      index < story.reviewStar ? "text-yellow-500" : "text-gray-300"
-                    }`}
+                    className={`text-yellow-500 ${index < 4 ? "text-yellow-500" : "text-gray-300"}`} // Static 4 stars
                   >
                     ★
                   </span>
                 ))}
               </div>
-              <p className="text-gray-600 text-center">{story.storyText}</p>
+              <p className="text-gray-600 text-center">{story.successStory}</p> {/* Success story */}
             </div>
           ))}
         </div>
