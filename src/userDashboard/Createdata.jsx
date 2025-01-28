@@ -63,7 +63,7 @@ const CreateData = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/biodata', biodata);
+            const response = await axios.post('https://find-partner-server.vercel.app/biodata', biodata);
 
             if (response.status === 201) {
                 Swal.fire("Success", "Your biodata has beeen created successfully", "success");
@@ -72,12 +72,11 @@ const CreateData = () => {
                 Swal.fire("error", "Find some error!");
             }
         } catch (error) {
-            console.error('Error submitting biodata:', error);
         }
     };
 
     return (
-        <div className="container mx-auto p-6 mt-10">
+        <div className="container mx-auto p-6 ">
             <h2 className="text-2xl font-semibold mb-6">Create or Edit Biodata</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Biodata Type */}

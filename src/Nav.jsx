@@ -31,7 +31,6 @@ const Nav = () => {
                 });
             })
             .catch((error) => {
-                console.error(error);
             });
     };
 
@@ -126,13 +125,13 @@ const Nav = () => {
                                                 Settings
                                             </p>
 
-                                            <div className="mt-3 border-t border-gray-200 pt-[5px]">
+                                            <div className="mt-3 border-t border-gray-200 pt-[5px] z-10">
                                                 <p className="flex items-center gap-[5px] rounded-md p-[8px] pr-[45px] py-[3px] text-[1rem] text-red-500 hover:bg-red-50">
                                                     <TbLogout2 />
                                                     <Link to="/login">
                                                         <button
                                                             onClick={handleSignOut}
-                                                            className="py-[7px] text-[1rem] px-[16px] rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 sm:flex hidden">
+                                                            className="py-[7px] text-[1rem] px-[16px] z-10 rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 sm:flex ">
                                                             Sign out
                                                         </button>
                                                     </Link>
@@ -151,7 +150,7 @@ const Nav = () => {
                         ) : (
                             <>
                                 <Link to="/login">
-                                    <button className="py-[7px] text-[1rem] px-[16px] rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 sm:flex hidden">
+                                    <button className="py-[7px] text-[1rem] px-[16px] rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 sm:flex ">
                                         Login
                                     </button>
                                 </Link>

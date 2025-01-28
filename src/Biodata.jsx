@@ -18,7 +18,7 @@ const Biodata = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/biodata");
+        const response = await axios.get("https://find-partner-server.vercel.app/biodata");
         const data = response.data;
 
         // Sort data by id in ascending order
@@ -29,7 +29,6 @@ const Biodata = () => {
         const uniqueDivisions = [...new Set(data.map((user) => user.permanentDivision))].filter(Boolean);
         setDivisions(uniqueDivisions);
       } catch (error) {
-        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }

@@ -7,13 +7,13 @@ import { axiosSecure } from '../Hooks/useAxiosSecure';
 const ManageUser = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [premium, setPremium]=useState([])
+    const [premium, setPremium] = useState([])
 
     // Fetch users from the server
     const fetchUsers = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:5000/users');
+            const response = await axios.get('https://find-partner-server.vercel.app/users');
             const uniqueUsers = [];
             const seenEmails = new Set();
 
@@ -30,24 +30,28 @@ const ManageUser = () => {
 
             setUsers(uniqueUsers);
         } catch (error) {
-            console.error('Error fetching users:', error);
         } finally {
             setLoading(false);
         }
     };
 
-    useEffect(()=>{
-        const fetchPremium =async ()=> {
-                try{
-                    const res = await axiosSecure.get('/premium')
-                    const data = await res.data
-                    setPremium(data)
-                }
-                catch(error){
-                }
+    useEffect(() => {
+        const fetchPremium = async () => {
+            try {
+                const res = await axiosSecure.get('/premium')
+                const data = await res.data
+                const filteredData = data.filter((p) => {
+                    return p?.isPremium === false && p?.status !== 'premium';
+                });
+
+                setPremium(filteredData);
+
+            }
+            catch (error) {
+            }
         }
         fetchPremium()
-    },[])
+    }, [])
 
     // Fetch users on component mount
     useEffect(() => {
@@ -69,7 +73,7 @@ const ManageUser = () => {
             if (result.isConfirmed) {
                 try {
                     // Update role on the server
-                    await axios.patch(`http://localhost:5000/users/${user._id}`, {
+                    await axios.patch(`https://find-partner-server.vercel.app/users/${user._id}`, {
                         role: 'admin',
                     });
 
@@ -88,7 +92,6 @@ const ManageUser = () => {
                         confirmButtonText: 'Awesome! 👍',
                     });
                 } catch (error) {
-                    console.error('Error updating user role:', error);
 
                     // Show error alert
                     Swal.fire({
@@ -102,14 +105,53 @@ const ManageUser = () => {
         });
     };
 
+    const handleMakePremium = async (userId) => {
+        try {
+            const res = await axiosSecure.patch(`/premium/${userId}`, { status: 'premium' });
+            if (res.data.message === 'User status updated to premium') {
+                // Update the `premium` state to reflect the changes dynamically
+                setPremium((prevPremium) =>
+                    prevPremium.filter((user) => user._id !== userId)
+                );
+    
+                // Update the `users` state if required
+                setUsers((prevUsers) =>
+                    prevUsers.map((user) =>
+                        user._id === userId ? { ...user, isPremium: true } : user
+                    )
+                );
+    
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'The user has been upgraded to premium!',
+                    icon: 'success',
+                });
+            } else {
+                Swal.fire({
+                    title: 'Oops!',
+                    text: 'Something went wrong. Please try again.',
+                    icon: 'error',
+                });
+            }
+        } catch (err) {
+            Swal.fire({
+                title: 'Oops!',
+                text: 'There was an error making the user premium. Please try again.',
+                icon: 'error',
+            });
+        }
+    };
+    
+    
+
     return (
         <div className="container mx-auto px-4 py-6">
             <h1 className="text-3xl font-semibold text-gray-800 mb-6">Manage Users</h1>
 
             {loading ? (
                 <div className="flex justify-center  h-screen">
-                <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
-            </div>
+                    <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                </div>
             ) : (
                 <div className="bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="overflow-x-auto">
@@ -126,9 +168,8 @@ const ManageUser = () => {
                                 {users.map((user, index) => (
                                     <tr
                                         key={user._id}
-                                        className={`hover:bg-gray-50 ${
-                                            index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-                                        } ${user.role === 'admin' ? '' : ''}`} // Removed border classes
+                                        className={`hover:bg-gray-50 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+                                            } ${user.role === 'admin' ? '' : ''}`} // Removed border classes
                                     >
                                         <td className="px-6 py-4 text-gray-800">{index + 1}</td>
                                         <td className="px-6 py-4 text-gray-800">{user.name}</td>
@@ -147,12 +188,22 @@ const ManageUser = () => {
                                                         Super Admin
                                                     </button>
                                                 )}
-                                                {user.role !== 'admin' && (
-                                                    <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
-                                                        Make Premium
-                                                    </button>
-                                                )}
-                                                
+                                                {user.role !== 'admin' &&
+                                                    premium.map((p, index) => {
+                                                        if (p.email === user.email && p.isPremium === false) {
+                                                            return (
+                                                                <button
+                                                                    key={index} 
+                                                                    className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 mb-2"
+                                                                    onClick={() => handleMakePremium(p._id)}
+                                                                >
+                                                                    Make Premium
+                                                                </button>
+                                                            );
+                                                        }
+                                                        return null; 
+                                                    })}
+
                                             </div>
                                         </td>
                                     </tr>

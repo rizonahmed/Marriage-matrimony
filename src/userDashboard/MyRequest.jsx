@@ -15,7 +15,6 @@ const MyRequest = () => {
                 const response = await axiosSecure.get(`/payments?email=${user?.email}`);
                 setRequests(response.data);
             } catch (error) {
-                console.error("Error fetching contact requests:", error);
                 Swal.fire({
                     title: "Error",
                     text: "Failed to load contact requests.",
@@ -49,7 +48,6 @@ const MyRequest = () => {
 
                     Swal.fire("Deleted!", "The payment request has been deleted.", "success");
                 } catch (error) {
-                    console.error("Error deleting contact request:", error);
                     Swal.fire("Error", "Failed to delete contact request.", "error");
                 }
             }
@@ -57,7 +55,7 @@ const MyRequest = () => {
     };
 
     return (
-        <div className="container mx-auto my-8 p-4">
+        <div className="container mx-auto mb-8 p-4">
             <h2 className="text-2xl font-semibold text-center mb-6">My Contact Requests</h2>
             <div className="overflow-x-auto bg-white rounded-lg shadow-md">
                 <table className="min-w-full table-auto">

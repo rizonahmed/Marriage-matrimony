@@ -11,13 +11,12 @@ const MyFavourite = () => {
     useEffect(() => {
         const fetchFavourites = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/favourites");
+                const response = await axios.get("https://find-partner-server.vercel.app/favourites");
                 const userFavourites = response.data.filter(
                     (item) => item.userEmail === user.email
                 );
                 setFavourites(userFavourites);
             } catch (error) {
-                console.error("Error fetching favourites:", error);
                 Swal.fire({
                     icon: "error",
                     title: "Error",
@@ -45,7 +44,7 @@ const MyFavourite = () => {
 
         if (confirmDelete.isConfirmed) {
             try {
-                const response = await axios.delete("http://localhost:5000/favourites", {
+                const response = await axios.delete("https://find-partner-server.vercel.app/favourites", {
                     data: {
                         biodataId: biodataId,
                         userEmail: user.email, // Get the email from your auth context or state
@@ -63,7 +62,6 @@ const MyFavourite = () => {
                     setFavourites(favourites.filter((item) => item._id !== id));
                 }
             } catch (error) {
-                console.error("Error deleting favourite:", error);
                 Swal.fire({
                     icon: "error",
                     title: "Error",

@@ -24,7 +24,6 @@ const CheckOut = ({ totalPayment, data }) => {
         const data = await res?.data?.clientSecret;
         setClientSecret(data);
       } catch (err) {
-        console.error(err);
       }
     };
     fetchData();
@@ -92,7 +91,6 @@ const CheckOut = ({ totalPayment, data }) => {
           try {
             const res = await axiosSecure.post(`/payments`, contact );
           } catch (err) {
-            console.error(err);
           }
         };
         postPaymentInfo();

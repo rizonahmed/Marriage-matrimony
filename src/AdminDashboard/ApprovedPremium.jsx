@@ -13,7 +13,6 @@ const ApprovedPremium = () => {
                 const res = await axiosSecure.get('/premium'); // Fetch premium requests from /premium route
                 setRequests(res.data);
             } catch (err) {
-                console.error('Error fetching premium requests:', err);
             }
         };
 
@@ -44,7 +43,6 @@ const ApprovedPremium = () => {
                 });
             }
         } catch (err) {
-            console.error('Error making user premium:', err);
             Swal.fire({
                 title: 'Oops!',
                 text: 'There was an error making the user premium. Please try again.',

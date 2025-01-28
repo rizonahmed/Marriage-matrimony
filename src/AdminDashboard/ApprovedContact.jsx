@@ -16,7 +16,6 @@ const ApprovedContact = () => {
                 const approvedRequests = res.data.filter(req => req.status.toLowerCase() !== 'approved');
                 setRequests(approvedRequests);
             } catch (err) {
-                console.error('Error fetching approved requests:', err);
             }
         };
 
@@ -34,7 +33,6 @@ const ApprovedContact = () => {
             });
             setRequests(prevRequests => prevRequests.filter(req => req._id !== paymentId)); // Remove from UI after approving
         } catch (err) {
-            console.error('Error approving contact request:', err);
             Swal.fire({
                 title: 'Oops!',
                 text: 'There was an error approving the request. Please try again.',
@@ -44,7 +42,7 @@ const ApprovedContact = () => {
     };
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto pt-8">
             <h2 className="text-2xl font-semibold mb-5">Approved Contact Requests</h2>
             <table className="min-w-full bg-white border border-gray-300 shadow-md rounded-lg">
                 <thead>

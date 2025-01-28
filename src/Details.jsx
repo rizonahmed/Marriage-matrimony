@@ -14,7 +14,7 @@ const Details = () => {
     const checkIfPremium = async () => {
       try {
         // Fetch the premium biodata list
-        const response = await axios.get("http://localhost:5000/premium");
+        const response = await axios.get("https://find-partner-server.vercel.app/premium");
         const premiumBiodata = response.data;
 
         const foundPremium = premiumBiodata.some(
@@ -22,7 +22,6 @@ const Details = () => {
         );
         setIsPremium(foundPremium);
       } catch (error) {
-        console.error("Error fetching premium data:", error);
       }
     };
 
@@ -31,7 +30,7 @@ const Details = () => {
 
   const handleAddToFavourites = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/favourites", {
+      const response = await axios.post("https://find-partner-server.vercel.app/favourites", {
         biodataId: biodata.id,
         name: biodata.name,
         age: biodata.age,
@@ -74,7 +73,6 @@ const Details = () => {
         });
       }
     } catch (error) {
-      console.error("Error adding to favourites:", error);
       Swal.fire({
         icon: "error",
         title: "Error",

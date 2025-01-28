@@ -40,7 +40,7 @@ const GotMarried = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/married",
+        "https://find-partner-server.vercel.app/married",
         formData
       );
       if (response.status === 200) {
@@ -58,7 +58,6 @@ const GotMarried = () => {
         });
       }
     } catch (error) {
-      console.error("Error submitting success story:", error);
       Swal.fire({
         icon: "error",
         title: "❌ Oops!",
@@ -177,11 +176,10 @@ const GotMarried = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-2 text-white font-semibold rounded-md focus:outline-none ${
-                loading
+              className={`w-full py-2 text-white font-semibold rounded-md focus:outline-none ${loading
                   ? "bg-gray-400"
                   : "bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
-              }`}
+                }`}
             >
               {loading ? "Submitting..." : "Submit Story"}
             </button>

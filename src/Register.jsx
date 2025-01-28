@@ -60,7 +60,7 @@ const Register = () => {
                 await updateProfile(auth.currentUser, profile);
 
                 // Post user data to the server
-                axios.post(`http://localhost:5000/users?email=${email}`, {
+                axios.post(`https://find-partner-server.vercel.app/users?email=${email}`, {
                     name,
                     email,
                     photo,
@@ -90,7 +90,7 @@ const Register = () => {
 
                 // Post Google user data to the server
                 const user = result.user;
-                await axios.post(`http://localhost:5000/users?email=${user.email}`, {
+                await axios.post(`https://find-partner-server.vercel.app/users?email=${user.email}`, {
                     name: user.displayName,
                     email: user.email,
                     photo: user.photoURL,
