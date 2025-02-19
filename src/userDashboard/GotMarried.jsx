@@ -40,7 +40,7 @@ const GotMarried = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://find-partner-server.vercel.app/married",
+        "http://localhost:5000/married",
         formData
       );
       if (response.status === 200) {

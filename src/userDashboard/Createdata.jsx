@@ -63,7 +63,7 @@ const CreateData = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://find-partner-server.vercel.app/biodata', biodata);
+            const response = await axios.post('http://localhost:5000/biodata', biodata);
 
             if (response.status === 201) {
                 Swal.fire("Success", "Your biodata has beeen created successfully", "success");

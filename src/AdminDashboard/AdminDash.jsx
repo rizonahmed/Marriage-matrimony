@@ -19,7 +19,7 @@ const AdminDash = () => {
 
   useEffect(() => {
     axios
-      .get("https://find-partner-server.vercel.app/biodata")
+      .get("http://localhost:5000/biodata")
       .then((response) => {
         const biodata = response.data;
         setTotalBiodata(biodata.length);
@@ -34,12 +34,12 @@ const AdminDash = () => {
       });
 
     axios
-      .get("https://find-partner-server.vercel.app/premium")
+      .get("http://localhost:5000/premium")
       .then((response) => setPremiumBiodata(response.data.length))
       .catch(error => {
       });
     axios
-      .get("https://find-partner-server.vercel.app/allPayments")
+      .get("http://localhost:5000/allPayments")
       .then((response) => {
         const revenue = response.data.length * 5;
         setTotalRevenue(revenue);

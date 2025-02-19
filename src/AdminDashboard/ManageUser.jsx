@@ -13,7 +13,7 @@ const ManageUser = () => {
     const fetchUsers = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('https://find-partner-server.vercel.app/users');
+            const response = await axios.get('http://localhost:5000/users');
             const uniqueUsers = [];
             const seenEmails = new Set();
 
@@ -73,7 +73,7 @@ const ManageUser = () => {
             if (result.isConfirmed) {
                 try {
                     // Update role on the server
-                    await axios.patch(`https://find-partner-server.vercel.app/users/${user._id}`, {
+                    await axios.patch(`http://localhost:5000/users/${user._id}`, {
                         role: 'admin',
                     });
 

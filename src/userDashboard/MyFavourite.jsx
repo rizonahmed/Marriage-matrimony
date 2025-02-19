@@ -11,7 +11,7 @@ const MyFavourite = () => {
     useEffect(() => {
         const fetchFavourites = async () => {
             try {
-                const response = await axios.get("https://find-partner-server.vercel.app/favourites");
+                const response = await axios.get("http://localhost:5000/favourites");
                 const userFavourites = response.data.filter(
                     (item) => item.userEmail === user.email
                 );
@@ -44,7 +44,7 @@ const MyFavourite = () => {
 
         if (confirmDelete.isConfirmed) {
             try {
-                const response = await axios.delete("https://find-partner-server.vercel.app/favourites", {
+                const response = await axios.delete("http://localhost:5000/favourites", {
                     data: {
                         biodataId: biodataId,
                         userEmail: user.email, // Get the email from your auth context or state

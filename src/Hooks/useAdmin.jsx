@@ -12,7 +12,7 @@ const useAdmin = () => {
         enabled: !!user?.email,
         queryFn: async () => {
             try {
-                const res = await axios.get(`https://find-partner-server.vercel.app/users/${user?.email}`);
+                const res = await axios.get(`http://localhost:5000/users/${user?.email}`);
                 return res.data;
             } catch (error) {
                 return false;

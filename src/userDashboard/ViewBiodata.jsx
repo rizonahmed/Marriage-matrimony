@@ -11,7 +11,7 @@ const ViewBiodata = () => {
     useEffect(() => {
         if (user?.email) {
             axios
-                .get(`https://find-partner-server.vercel.app/biodata`)
+                .get(`http://localhost:5000/biodata`)
                 .then((response) => {
                     const data = response.data.find((item) => item.contactEmail === user.email);
                     if (data) {
@@ -47,7 +47,7 @@ const ViewBiodata = () => {
                 };
 
                 axios
-                    .post(`https://find-partner-server.vercel.app/premium`, postData)
+                    .post(`http://localhost:5000/premium`, postData)
                     .then(() => {
                         Swal.fire("Success", "Your biodata has been sent for premium approval!", "success");
                     })
