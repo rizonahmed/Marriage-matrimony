@@ -3,20 +3,16 @@ import { IoIosInformationCircle } from "react-icons/io";
 
 const Galary = () => {
   const images = [
-    
-   
     {
       src: "https://live.staticflickr.com/4241/35583744215_59267c864b_b.jpg",
       title: "OPo Biswas",
       author: "Heroin",
     },
-  
     {
       src: "https://images.prothomalo.com/prothomalo-english%2Fimport%2Fmedia%2F2017%2F06%2F24%2F740eaab5da2b92eed0d30bdbdaf54a3f-Untitled-1.jpg?auto=format%2Ccompress&w=1200",
       title: "Shakib KHan",
       author: "Engineer",
     },
-    
     {
       src: "https://ecdn.kalerkantho.com/public/news_images/2023/04/12/1681296258-d7653913ea2d3ef4cb94862251c0fcde.jpg",
       title: "Bubli",
@@ -51,22 +47,19 @@ const Galary = () => {
 
   return (
     <div className="bg-gray-50 py-8">
-
-
-      <h2 className="text-3xl font-bold text-center mb-6">Choose Your Life Partner </h2>
-      <marquee
-        behavior="scroll"
-        direction="left"
-        scrollamount="6"
-        className="overflow-hidden"
-      >
-        <div className="flex gap-4">
+      <h2 className="text-3xl font-bold text-center mb-6">Choose Your Life Partner</h2>
+      <marquee behavior="scroll" direction="left" scrollamount="6" className="overflow-hidden">
+        <div className="flex gap-4 flex-nowrap">
           {images.map((image, index) => (
-            <div key={index} className="relative w-72 h-48 rounded-lg overflow-hidden shadow-md">
+            <div
+              key={index}
+              className="relative w-72 sm:w-64 md:w-72 lg:w-80 min-w-[250px] h-48 rounded-lg overflow-hidden shadow-md"
+            >
               <img
                 src={image.src}
                 alt={image.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="absolute bottom-0 left-0 w-full px-4 py-2 backdrop-blur-[2px] bg-opacity-60 bg-black text-white flex justify-between items-center">
                 <div>
@@ -80,12 +73,8 @@ const Galary = () => {
         </div>
       </marquee>
       <p className="text-center text-base mt-6 text-gray-600">
-        They are all our user you can choose anyone for marriage.
+        They are all our users; you can choose anyone for marriage.
       </p>
-
-
-
-
     </div>
   );
 };
