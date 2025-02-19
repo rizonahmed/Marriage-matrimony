@@ -11,14 +11,14 @@ const PremiumCard = () => {
 
     useEffect(() => {
         // Fetch biodata
-        axios.get('http://localhost:5000/biodata')
+        axios.get('https://find-partner-server.vercel.app/biodata')
             .then((response) => {
                 setBiodata(response.data);
             })
             .catch((error) => {});
 
         // Fetch premium users
-        axios.get('http://localhost:5000/premium')
+        axios.get('https://find-partner-server.vercel.app/premium')
             .then((response) => {
                 const premiumData = response.data;
 

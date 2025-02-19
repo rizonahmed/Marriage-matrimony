@@ -14,11 +14,9 @@ const Home = () => {
       <PremiumCard></PremiumCard>
       <HowItWorks></HowItWorks>
       <Success></Success>
-      <Review></Review>
       <Membership></Membership>
       <FeaturedMatches></FeaturedMatches>
-
-
+      <Review></Review>
       <Galary></Galary>
       
         </div>

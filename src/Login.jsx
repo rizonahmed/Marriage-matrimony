@@ -41,7 +41,7 @@ const Login = () => {
         googleSignIn()
             .then(async (result) => {
                 const user = result.user;
-                await axios.post('http://localhost:5000/users', {
+                await axios.post('https://find-partner-server.vercel.app/users', {
                     name: user.displayName,
                     email: user.email,
                     photo: user.photoURL,

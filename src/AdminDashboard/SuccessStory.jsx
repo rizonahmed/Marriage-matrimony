@@ -9,7 +9,7 @@ const SuccessStory = () => {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/married"); // Replace with your API endpoint
+        const response = await axios.get("https://find-partner-server.vercel.app/married"); // Replace with your API endpoint
         setStories(response.data);
       } catch (error) {
       }

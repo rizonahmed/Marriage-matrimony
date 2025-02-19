@@ -139,17 +139,17 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element: <Private><Details></Details></Private>,
-        loader: ({ params }) => fetch(` http://localhost:5000/biodata/${params.id}`)
+        loader: ({ params }) => fetch(` https://find-partner-server.vercel.app/biodata/${params.id}`)
       },
       {
         path: '/payment/:id',
         element: <Private><Payment></Payment></Private>,
-        loader: ({ params }) => fetch(` http://localhost:5000/biodata/${params.id}`)
+        loader: ({ params }) => fetch(` https://find-partner-server.vercel.app/biodata/${params.id}`)
       },
       {
         path: '/premiumDetails/:email',
         element: <Private><Details></Details></Private>,
-        loader: ({ params }) => fetch(`http://localhost:5000/premiumDetails/${params.email}`)
+        loader: ({ params }) => fetch(`https://find-partner-server.vercel.app/premiumDetails/${params.email}`)
       }
     ]
   },

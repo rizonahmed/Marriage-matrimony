@@ -9,7 +9,7 @@ const Success = () => {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/married");
+        const response = await axios.get("https://find-partner-server.vercel.app/married");
         setSuccessStories(response.data);
       } catch (error) {
       }
