@@ -35,9 +35,9 @@ const Nav = () => {
     };
 
     return (
-        <div className="fixed top-0 w-full z-50 bg-[#ffffff00] backdrop-blur-xl">
+        <div className="fixed top-0 w-full z-50 bg-[#ffffff00] backdrop-blur-xl shadow-md">
             <div className="w-11/12 mx-auto">
-                <nav className="flex items-center justify-between w-full relative shadow-md rounded-full px-[10px] py-[8px] bg-transparent">
+                <nav className="flex items-center justify-between w-full relative  px-[10px] py-[8px] bg-transparent">
                     {/* Logo */}
                     <div className="flex items-center">
                         <img src={logo} alt="logo" className="w-[70px]" />
