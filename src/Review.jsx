@@ -68,7 +68,7 @@ const Review = () => {
         ))}
       </div>
       <div className="text-center mt-6">
-        <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg">Submit Review</button>
+        <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg"> Give Feedback</button>
       </div>
     </div>
    </div>
