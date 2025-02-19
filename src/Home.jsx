@@ -1,7 +1,9 @@
 import Banner from "./Banner";
 import Galary from "./Galary";
 import HowItWorks from "./HowItWork";
+import Membership from "./Membership";
 import PremiumCard from "./PremiumCard";
+import Review from "./Review";
 import Success from "./Success";
 
 const Home = () => {
@@ -11,6 +13,10 @@ const Home = () => {
       <PremiumCard></PremiumCard>
       <HowItWorks></HowItWorks>
       <Success></Success>
+      <Review></Review>
+      <Membership></Membership>
+
+
       <Galary></Galary>
       
         </div>
