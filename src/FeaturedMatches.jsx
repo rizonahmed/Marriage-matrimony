@@ -7,42 +7,42 @@ const FeaturedMatches = () => {
       date: "2025-03-10T15:00:00Z",
       location: "Dhaka, Bangladesh",
       description: "Join us for the wedding celebration of Ayesha and Imran. A grand celebration awaits you!",
-      image: "wedding1.jpg",
+      image: "https://media.istockphoto.com/id/1368004438/photo/shot-of-a-couple-enjoying-a-day-at-the-beach.jpg?s=612x612&w=0&k=20&c=hMi6N-u6baFHC-P8C-8X_5iFshdPPicx7BCrBGM8ARc=",
     },
     {
       name: "Nazia & Fahad's Engagement",
       date: "2025-03-15T17:00:00Z",
       location: "Chittagong, Bangladesh",
       description: "A special event to mark the engagement of Nazia and Fahad. An evening full of joy and laughter.",
-      image: "engagement1.jpg",
+      image: "https://img.weddingbazaar.com/shaadisaga_production/photos/pictures/006/388/341/new_medium/ZAK_5945.JPG?1680001263",
     },
     {
       name: "Sara & Ali's Pre-wedding Party",
       date: "2025-03-20T19:00:00Z",
       location: "Sylhet, Bangladesh",
       description: "Get ready for a night of fun, food, and celebration as Sara and Ali prepare for their wedding!",
-      image: "prewedding1.jpg",
+      image: "https://media.istockphoto.com/id/868924246/photo/bride-and-groom-enjoying-in-their-love.jpg?s=612x612&w=0&k=20&c=pPMrq_ttTKsOmOqJcL0-IzOgYLOtdwH7Z5Gc1AH4340=",
     },
     {
       name: "Mehdi & Amina's Reception",
       date: "2025-03-25T18:00:00Z",
       location: "Khulna, Bangladesh",
       description: "A wonderful reception to celebrate the union of Mehdi and Amina. Join us for a joyous evening!",
-      image: "reception1.jpg",
+      image: "https://www.shutterstock.com/image-photo/young-attractive-asian-couple-man-600nw-2031753845.jpg",
     },
     {
       name: "Rashed & Samira's Nikah Ceremony",
       date: "2025-03-30T14:00:00Z",
       location: "Rajshahi, Bangladesh",
       description: "A sacred and beautiful Nikah ceremony of Rashed and Samira. You are invited!",
-      image: "nikah1.jpg",
+      image: "https://cdn.pixabay.com/photo/2021/01/06/21/50/couple-5895728_1280.jpg",
     },
     {
       name: "Tariq & Layla's Anniversary Celebration",
       date: "2025-04-05T20:00:00Z",
       location: "Barishal, Bangladesh",
       description: "Celebrating the love and commitment of Tariq and Layla on their wedding anniversary.",
-      image: "anniversary1.jpg",
+      image: "https://images.pexels.com/photos/3872614/pexels-photo-3872614.jpeg?cs=srgb&dl=pexels-ankur-kumar-2067233-3872614.jpg&fm=jpg",
     },
   ];
 
@@ -74,7 +74,7 @@ const FeaturedMatches = () => {
   return (
     <div className="container mx-auto my-20 px-4">
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">Upcoming Marriage Events</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {events.map((event, index) => {
           const { days, hours, minutes, seconds } = timeRemaining[index];
 
